@@ -1,11 +1,14 @@
 
 import './App.css'
+import { Home } from './componet/Pages/Home'
 
 function App() {
 
 
   return (
-    <div className='bg-red-600'>Testing</div>
+    <div>
+      <Home/>
+    </div>
   )
 }
 
