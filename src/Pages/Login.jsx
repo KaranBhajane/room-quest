@@ -1,14 +1,14 @@
 import React from "react";
-// import bgimage from '../assets/loginbg.png'
+import bgimage from '../assets/loginbg.png'
 
 export const Login = () => {
   return (
     <div>
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 bg-gray-50">
-          <img src="" alt="Background" className="object-cover w-full h-full" />
+          <img src={bgimage} alt="Background" className="object-cover w-full h-full" />
         </div>
-        <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
+        <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0 -mt-5">
           <div className="w-full bg-white bg-opacity-50 rounded-lg shadow md:mt-0 sm:max-w-md xl:p-0 relative z-10">
             <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
               <h1 className="text-xl text-center font-bold leading-tight tracking-tight text-gray-900 md:text-2xl">
