@@ -1,15 +1,15 @@
-
-import './App.css'
-import { Home } from './componet/Pages/Home'
-
+import "./App.css";
+import {NavBar} from "./componet/NavBar";
+import { Outlet } from "react-router";
 function App() {
-
-
   return (
     <div>
-      <Home/>
+      <div className="bg-gray-900">
+        <NavBar />
+        <Outlet />
+      </div>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
