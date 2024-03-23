@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import logo from "../assets/logo.png";
 import carsoul1 from "../assets/Carousel1.png";
 import carsoul2 from "../assets/Carousel2.png";
 import carsoul3 from "../assets/Carousel3.png";
@@ -10,6 +9,9 @@ import Instant from "../assets/instant-move.gif";
 import Deposit from "../assets/Deposit.gif";
 import experience from "../assets/experience.gif";
 import threecard from "../assets/threecardimg.png";
+import Student from "../assets/Student(1).jpg";
+import vector from "../assets/vector1.png";
+import banner from "../assets/banner.png";
 
 export const Home = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -39,7 +41,7 @@ export const Home = () => {
       {/* Carousel started */}
       <div
         id="default-carousel"
-        className="relative  h-screen overflow-hidden"
+        className="relative h-[450px] overflow-hidden"
         data-carousel="slide"
       >
         <div className="relative h-full rounded-lg overflow-hidden">
@@ -52,6 +54,7 @@ export const Home = () => {
               className="w-full h-full object-cover"
               alt="..."
             />
+
             <img
               src={carsoul2}
               className="w-full h-full object-cover"
@@ -174,11 +177,11 @@ export const Home = () => {
         <div>
           <img
             class="object-cover w-full rounded-t-lg h-96 md:h-96 md:w-full md:rounded-none mt-12"
-            src=""
+            src={Student}
             alt=""
           />
         </div>
-        <div class="flex flex-col justify-between p-4 leading-normal">
+        <div class="flex flex-col justify-between p-4 leading-normal md:ml-14">
           <div className="flex flex-col lg:flex-row justify-center items-center py-12">
             <div className="max-w-4xl mx-auto px-4 md:w-full">
               <div className="flex flex-wrap justify-around mb-9 ">
@@ -234,13 +237,13 @@ export const Home = () => {
         </div>
         <img
           class="object-cover w-full md:w-[500px] md:ml-14  h-96 md:h-auto md:h-96 md:rounded-none"
-          src=""
+          src={vector}
           alt=""
         />
       </a>
       {/*  */}
       <div>
-        <img src="" className="md:h-[600px] m-auto mt-14 rounded-3xl" />
+        <img src={banner} className="md:h-[600px] m-auto mt-14 rounded-3xl" />
       </div>
 
       {/* .. */}
@@ -261,7 +264,7 @@ export const Home = () => {
           </button>
         </div>
         <img
-          class=" w-full md:w-[500px] md:ml-9  h-96 md:h-auto md:h-[500px] md:mr-11 md:rounded-none md:mt-14"
+          class=" w-full md:w-[500px] md:ml-9  h-96 md:h-[500px] md:mr-11 md:rounded-none md:mt-14"
           src={threecard}
           alt=""
         />
