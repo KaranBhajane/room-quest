@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
+import logo from "../assets/logo.png";
 
 export const NavBar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -16,13 +17,9 @@ export const NavBar = () => {
             <div>
               <a
                 href="https://flowbite.com/"
-                className="flex items-center space-x-3 rtl:space-x-reverse"
+                className="flex items-center space-x-3 rtl:space-x-reverse "
               >
-                <img
-                  src="src\assets\ROOMQUEST.png"
-                  className="h-8"
-                  alt="Flowbite Logo"
-                />
+                <img src={logo} className="w-32" alt="Flowbite Logo" />
               </a>
             </div>
             <button
