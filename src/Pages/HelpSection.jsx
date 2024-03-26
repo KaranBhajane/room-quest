@@ -1,6 +1,7 @@
 import React from "react";
 import { Accordion } from "flowbite-react";
 import bg from "../assets/Carousel2.png";
+import Footer from "../componet/Footer";
 
 export const HelpSection = () => {
   return (
@@ -121,6 +122,7 @@ export const HelpSection = () => {
           </div>
         </div>
       </div>
+      <Footer/>
     </>
   );
 };

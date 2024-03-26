@@ -12,6 +12,11 @@ import threecard from "../assets/threecardimg.png";
 import Student from "../assets/Student(1).jpg";
 import vector from "../assets/vector1.png";
 import banner from "../assets/banner.png";
+import review1 from "../assets/review1.jpeg";
+import review2 from "../assets/review2.jpeg";
+import review3 from "../assets/review3.jpeg";
+import review4 from "./../assets/review4.jpeg";
+import Footer from "../componet/Footer";
 
 export const Home = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -275,53 +280,58 @@ export const Home = () => {
 
       <h1 className="text-center mb-7 mt-10 font-bold text-3xl">Reviews!!</h1>
       <div class="grid mb-8 border border-gray-200 rounded-lg shadow-sm md:mb-12 md:grid-cols-2 bg-white ">
-        <figure class="flex flex-col items-center justify-center p-4  text-center bg-white border-b border-gray-200 rounded-t-lg md:rounded-t-none md:rounded-ss-lg md:border-e ">
-          <blockquote class="max-w-2xl mx-auto mb-4 text-gray-500 lg:mb-8 dark:text-gray-400">
-            <h3 class="text-lg font-semibold text-gray-900 ">
-              Very easy this was to integrate
+        <figure className="flex flex-col items-center justify-center p-4 text-center bg-white border-b border-gray-200 rounded-t-lg md:rounded-t-none md:rounded-ss-lg md:border-e">
+          <blockquote className="max-w-2xl mx-auto mb-4 text-gray-500 lg:mb-8 dark:text-gray-400">
+            <h3 className="text-lg font-semibold text-gray-900">
+              RoomQuest is a game-changer!
             </h3>
-            <p class="my-4">
-              If you care for your time, I hands down would go with this."
+            <p className="my-4">
+              RoomQuest offers a wide range of accommodation options,
+              user-friendly booking, safe transactions, and dedicated customer
+              support for a hassle-free experience.
             </p>
           </blockquote>
-          <figcaption class="flex items-center justify-center ">
+          <figcaption className="flex items-center justify-center">
             <img
-              class="rounded-full w-9 h-9"
-              src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/karen-nelson.png"
+              className="rounded-full w-9 h-9"
+              src={review1}
               alt="profile picture"
             />
-            <div class="space-y-0.5 font-medium dark:text-gray-950 text-left rtl:text-right ms-3">
-              <div>Bonnie Green</div>
-              <div class="text-sm text-gray-500 dark:text-gray-400 ">
-                Developer at Open AI
+            <div className="space-y-0.5 font-medium dark:text-gray-950 text-left rtl:text-right ms-3">
+              <div>Yash Mishra</div>
+              <div className="text-sm text-gray-500 dark:text-gray-400">
+                FullStack Developer
               </div>
             </div>
           </figcaption>
         </figure>
-        <figure class="flex flex-col items-center justify-center p-8 text-center bg-white border-b border-gray-200 md:rounded-se-lg">
-          <blockquote class="max-w-2xl mx-auto mb-4 text-gray-500 lg:mb-8 dark:text-gray-400">
-            <h3 class="text-lg font-semibold text-gray-900 ">
-              Solid foundation for any project
+
+        <figure className="flex flex-col items-center justify-center p-4 text-center bg-white border-b border-gray-200 rounded-t-lg md:rounded-t-none md:rounded-ss-lg md:border-e">
+          <blockquote className="max-w-2xl mx-auto mb-4 text-gray-500 lg:mb-8 dark:text-gray-400">
+            <h3 className="text-lg font-semibold text-gray-900">
+              RoomQuest made my search for accommodation a breeze!
             </h3>
-            <p class="my-4">
-              Designing with Figma components that can be easily translated to
-              the utility classes of Tailwind CSS is a huge timesaver!"
+            <p className="my-4">
+              RoomQuest's wide array of options, user-friendly interface, secure
+              transactions, and excellent customer support make it the top
+              choice for accommodation seekers.
             </p>
           </blockquote>
-          <figcaption class="flex items-center justify-center ">
+          <figcaption className="flex items-center justify-center">
             <img
-              class="rounded-full w-9 h-9"
-              src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/roberta-casas.png"
+              className="rounded-full w-9 h-9"
+              src={review2}
               alt="profile picture"
             />
-            <div class="space-y-0.5 font-medium  text-left rtl:text-right ms-3">
-              <div>Roberta Casas</div>
-              <div class="text-sm text-gray-500 dark:text-gray-400">
-                Lead designer at Dropbox
+            <div className="space-y-0.5 font-medium dark:text-gray-950 text-left rtl:text-right ms-3">
+              <div>Shubham Mahatme</div>
+              <div className="text-sm text-gray-500 dark:text-gray-400">
+                Selsforce Developer
               </div>
             </div>
           </figcaption>
         </figure>
+
         <figure class="flex flex-col items-center justify-center p-8 text-center bg-white border-b border-gray-200 md:rounded-es-lg md:border-b-0 md:border-e ">
           <blockquote class="max-w-2xl mx-auto mb-4 text-gray-500 lg:mb-8 dark:text-gray-400">
             <h3 class="text-lg font-semibold text-gray-900 ">
@@ -335,13 +345,13 @@ export const Home = () => {
           <figcaption class="flex items-center justify-center ">
             <img
               class="rounded-full w-9 h-9"
-              src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/jese-leos.png"
+              src={review3}
               alt="profile picture"
             />
             <div class="space-y-0.5 font-medium  text-left rtl:text-right ms-3">
-              <div>Jese Leos</div>
+              <div>Parag Dahate</div>
               <div class="text-sm text-gray-500 dark:text-gray-400">
-                Software Engineer at Facebook
+                FullStack Developer
               </div>
             </div>
           </figcaption>
@@ -359,13 +369,13 @@ export const Home = () => {
           <figcaption class="flex items-center justify-center ">
             <img
               class="rounded-full w-9 h-9"
-              src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/joseph-mcfall.png"
+              src={review4}
               alt="profile picture"
             />
             <div class="space-y-0.5 font-medium  text-left rtl:text-right ms-3">
-              <div>Joseph McFall</div>
+              <div>Tejashree Mahajan</div>
               <div class="text-sm text-gray-500 dark:text-gray-400">
-                CTO at Google
+                Mechanical Engineer
               </div>
             </div>
           </figcaption>
@@ -378,100 +388,8 @@ export const Home = () => {
           Find Perfect Accommodation
         </button>
       </div>
-
-      {/* Footer starts */}
-      <footer className="bg-gray-800 text-white py-4">
-        <div className="container mx-auto text-center">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 px-6 py-8">
-            <div>
-              <h3 className="text-lg font-semibold">Company</h3>
-              <ul className="mt-4">
-                <li>
-                  <a href="#">About</a>
-                </li>
-                <li>
-                  <a href="#">Careers</a>
-                </li>
-                <li>
-                  <a href="#">Brand Center</a>
-                </li>
-                <li>
-                  <a href="#">Blog</a>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="text-lg font-semibold">Help Center</h3>
-              <ul className="mt-4">
-                <li>
-                  <a href="#">Discord Server</a>
-                </li>
-                <li>
-                  <a href="#">Twitter</a>
-                </li>
-                <li>
-                  <a href="#">Facebook</a>
-                </li>
-                <li>
-                  <a href="#">Contact Us</a>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="text-lg font-semibold">Legal</h3>
-              <ul className="mt-4">
-                <li>
-                  <a href="#">Privacy Policy</a>
-                </li>
-                <li>
-                  <a href="#">Licensing</a>
-                </li>
-                <li>
-                  <a href="#">Terms &amp; Conditions</a>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="text-lg font-semibold">Download</h3>
-              <ul className="mt-4">
-                <li>
-                  <a href="#">iOS</a>
-                </li>
-                <li>
-                  <a href="#">Android</a>
-                </li>
-                <li>
-                  <a href="#">Windows</a>
-                </li>
-                <li>
-                  <a href="#">MacOS</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div className="bg-gray-700 px-4 py-6 flex justify-center items-center">
-            <p className="text-sm">© RoomQuest™ 2022</p>
-            <div className="ml-6 space-x-4">
-              <a href="#" className="text-white">
-                <i className="fab fa-facebook"></i>
-              </a>
-              <a href="#" className="text-white">
-                <i className="fab fa-instagram"></i>
-              </a>
-              <a href="#" className="text-white">
-                <i className="fab fa-twitter"></i>
-              </a>
-              <a href="#" className="text-white">
-                <i className="fab fa-github"></i>
-              </a>
-              <a href="#" className="text-white">
-                <i className="fab fa-dribbble"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-      </footer>
-      {/* footer ends */}
+    
+    <Footer/> 
     </div>
   );
 };
