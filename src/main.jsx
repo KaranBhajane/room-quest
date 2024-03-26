@@ -7,7 +7,7 @@ import { HelpSection } from "./Pages/HelpSection.jsx";
 import { Home } from "./Pages/Home.jsx";
 import { Login } from "./Pages/Login.jsx";
 import { Register } from "./Pages/Register.jsx";
-import { Signup } from "./Pages/Signup.jsx";
+import { StudentRegistration } from "./Pages/StudentRegistration.jsx";
 
 
 import {
@@ -25,7 +25,7 @@ const router = createBrowserRouter(
       <Route path="helpsection" element={<HelpSection />} />
       <Route path="login" element={<Login />} />
       <Route path="register" element={<Register />} />
-      <Route path="signup" element={<Signup />} />
+      <Route path="studentregistration" element={<StudentRegistration />} />
     </Route>
   )
 );
