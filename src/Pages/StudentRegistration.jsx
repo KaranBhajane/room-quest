@@ -78,7 +78,7 @@ export const StudentRegistration = () => {
           <div className="w-full bg-white bg-opacity-50 rounded-lg shadow md:mt-0 sm:max-w-md xl:p-0 relative ">
             <div className="p-5 space-y-5 md:space-y-3 sm:p-7">
               <h1 className="text-xl text-center font-bold leading-tight mb-4 tracking-tight text-gray-900 md:text-2xl">
-                User Registration
+                Register Your Self
               </h1>
               <form className="space-y-4 md:space-y-6" onSubmit={handleSubmit}>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -271,7 +271,7 @@ export const StudentRegistration = () => {
                   type="submit"
                   className="w-full text-white bg-blue-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
                 >
-                  Sign Up
+                 Register Your Self
                 </button>
                 <p className="text-sm text-gray-600">
                   Already have an account?{" "}

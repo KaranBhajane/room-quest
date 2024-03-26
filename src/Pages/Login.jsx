@@ -13,7 +13,7 @@ export const Login = () => {
   return (
     <div className="overflow-hidden h-screen">
       <section className="relative">
-      <div className="absolute inset-0 h-screen">
+        <div className="absolute inset-0 h-screen">
           <img
             src={bgimage}
             alt="Background"
@@ -73,10 +73,7 @@ export const Login = () => {
                       />
                     </div>
                     <div className="ml-3 text-sm">
-                      <label
-                        htmlFor="showpassword"
-                        className="text-gray-600"
-                      >
+                      <label htmlFor="showpassword" className="text-gray-600">
                         Show password
                       </label>
                     </div>
