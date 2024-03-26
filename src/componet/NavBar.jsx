@@ -106,18 +106,18 @@ export const NavBar = () => {
                     </svg>
                   </a>
                   <ul
-                    className={`absolute top-full left-0  bg-gray-800 border border-gray-100 rounded-lg p-2 w-[12rem] ${
+                    className={`absolute top-full left-0  bg-gray-800 border border-gray-100 rounded-lg p-2 w-[13rem] ${
                       isRegistrationOpen ? "" : "hidden"
                     }`}
                   >
-                    <NavLink to="/owner-registration" onClick={closeMenu}>
+                    <NavLink to="/homeregistration" onClick={closeMenu}>
                       <li className="py-2 px-3 text-gray-300 hover:bg-gray-700 rounded-md">
-                       Owner Registration
+                       Register Your Room
                       </li>
                     </NavLink>
                     <NavLink to="/studentregistration" onClick={closeMenu}>
                       <li className="py-2 px-3 text-gray-300 hover:bg-gray-700 rounded-md">
-                        Student Registration
+                        Register Your Self
                       </li>
                     </NavLink>
                   </ul>
