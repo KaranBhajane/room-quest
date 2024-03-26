@@ -6,6 +6,7 @@ import About4 from "./../assets/about4.png";
 import Bottom1 from "./../assets/Bottom1.png";
 import Bottom2 from "./../assets/Bottom2.png";
 import Bottom3 from "./../assets/Bottom3.png";
+import Footer from "../componet/Footer";
 
 export const About = () => {
   return (
@@ -64,7 +65,7 @@ export const About = () => {
           </p>
           <img src={About3} className="m-auto mt-14 h-80" />
           <div className="flex justify-center">
-            <ul className=" text-3xl  mt-2 text-center">
+            <ul className=" text-3xl  mt-2 ml-5">
               <li>&#x2022; Room search and booking platform</li>
               <li className="mt-1">
                 &#x2022; Virtual tours of accommodation options
@@ -125,26 +126,27 @@ export const About = () => {
 
         {/*  */}
 
-        <div className="flex md:m-20">
-          <p className="text-5xl font-semibold md:mt-10">
+        <div className="flex md:m-20 flex-col md:flex-row">
+          <p className="text-5xl font-semibold mt-10 text-center md:text-left">
             Be Part Of Our Growing Family
           </p>
           <div>
-            <img src={Bottom1} />
+            <img src={Bottom1} className=" m-auto mt-10" />
             <p className="text-center mt-3">SEARCH FOR RENT ROOMS</p>
           </div>
 
           <div>
-            <img src={Bottom2} />
+            <img src={Bottom2} className=" m-auto mt-10"  />
             <p className="text-center mt-3">REGISTER YOUR ROOM</p>
           </div>
 
           <div>
-            <img src={Bottom3} />
+            <img src={Bottom3} className=" m-auto mt-10" />
             <p className="text-center mt-3">JOIN OUR FAMILY</p>
           </div>
         </div>
       </div>
+      <Footer/>
     </>
   );
 };
