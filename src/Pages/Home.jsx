@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import carsoul1 from "../assets/Carousel1.png";
+import carsoul1 from "../assets/carousel1 (3).png";
 import carsoul2 from "../assets/Carousel2.png";
 import carsoul3 from "../assets/Carousel3.png";
 import carsoul4 from "../assets/Carousel4.png";

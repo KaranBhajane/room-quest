@@ -8,6 +8,7 @@ import { Home } from "./Pages/Home.jsx";
 import { Login } from "./Pages/Login.jsx";
 import { Register } from "./Pages/Register.jsx";
 import { Signup } from "./Pages/Signup.jsx";
+import {HouseListings} from "./Pages/HouseListings.jsx";
 
 
 import {
@@ -26,6 +27,7 @@ const router = createBrowserRouter(
       <Route path="login" element={<Login />} />
       <Route path="register" element={<Register />} />
       <Route path="signup" element={<Signup />} />
+      <Route path="houselistings" element={<HouseListings />} />
     </Route>
   )
 );
