@@ -9,7 +9,7 @@ import house6 from "./../assets/house6.jpg";
 export const HouseListings = () => {
   return (
     <div>
-      <div className="max-w-[800px] border md:m-auto md:mt-10 p-5 shadow-2xl m-5 flex flex-col md:flex-row rounded-2xl">
+      <div className="max-w-[1500px] border md:m-auto md:mt-10 p-5 shadow-2xl m-5 flex flex-col md:flex-row rounded-2xl">
         <div className="order-2 md:order-1">
           <img
             src={house1}
@@ -52,7 +52,7 @@ export const HouseListings = () => {
 
       {/*  */}
 
-      <div className="max-w-[800px] border md:m-auto md:mt-10 p-5 shadow-2xl m-5 flex flex-col md:flex-row mb-10 rounded-2xl">
+      <div className="max-w-[1500px] border md:m-auto md:mt-10 p-5 shadow-2xl m-5 flex flex-col md:flex-row mb-10 rounded-2xl">
         <div className="order-2 md:order-1">
           <img
             src={house2}
@@ -93,7 +93,7 @@ export const HouseListings = () => {
 
       {/*  */}
 
-      <div className="max-w-[800px] border md:m-auto md:mt-10 p-5 shadow-2xl m-5 flex flex-col md:flex-row mb-10 rounded-2xl">
+      <div className="max-w-[1500px] border md:m-auto md:mt-10 p-5 shadow-2xl m-5 flex flex-col md:flex-row mb-10 rounded-2xl">
         <div className="order-2 md:order-1">
           <img
             src={house3}
@@ -136,7 +136,7 @@ export const HouseListings = () => {
 
       {/*  */}
 
-      <div className="max-w-[800px] border md:m-auto md:mt-10 p-5 shadow-2xl m-5 flex flex-col md:flex-row mb-10 rounded-2xl">
+      <div className="max-w-[1500px] border md:m-auto md:mt-10 p-5 shadow-2xl m-5 flex flex-col md:flex-row mb-10 rounded-2xl">
         <div className="order-2 md:order-1">
           <img
             src={house4}
@@ -147,7 +147,9 @@ export const HouseListings = () => {
           <h5 className="text-2xl font-bold tracking-tight text-gray-900">
             &#8377; 8000
           </h5>
-          <p className="text-xl font-semibold text-gray-700">Independent Room for rent</p>
+          <p className="text-xl font-semibold text-gray-700">
+            Independent Room for rent
+          </p>
           <p className="font-normal text-gray-600">Wadi , Nagpur</p>
           <div className="mt-3 border-t border-gray-300 pt-3 flex flex-col md:flex-row">
             <div className="flex-1">
@@ -164,7 +166,8 @@ export const HouseListings = () => {
             </div>
           </div>
           <div className="mt-3 text-sm text-gray-500">
-          Designed for students or professionals in search of a tranquil, fully furnished home with nearby amenities.
+            Designed for students or professionals in search of a tranquil,
+            fully furnished home with nearby amenities.
           </div>
           <div className="flex justify-end">
             <button className="bg-white text-blue-500 px-4 py-2 border border-blue-500 rounded mt-3 hover:bg-blue-600 hover:text-white transition-colors duration-300">
@@ -176,7 +179,7 @@ export const HouseListings = () => {
 
       {/*  */}
 
-      <div className="max-w-[800px] border md:m-auto md:mt-10 p-5 shadow-2xl m-5 flex flex-col md:flex-row mb-10 rounded-2xl">
+      <div className="max-w-[1500px] border md:m-auto md:mt-10 p-5 shadow-2xl m-5 flex flex-col md:flex-row mb-10 rounded-2xl">
         <div className="order-2 md:order-1">
           <img
             src={house5}
@@ -206,7 +209,8 @@ export const HouseListings = () => {
             </div>
           </div>
           <div className="mt-3 text-sm text-gray-500">
-          Suited for individuals desiring a comfortable, fully furnished living space with close proximity to amenities.
+            Suited for individuals desiring a comfortable, fully furnished
+            living space with close proximity to amenities.
           </div>
           <div className="flex justify-end">
             <button className="bg-white text-blue-500 px-4 py-2 border border-blue-500 rounded mt-3 hover:bg-blue-600 hover:text-white transition-colors duration-300">
@@ -218,7 +222,7 @@ export const HouseListings = () => {
 
       {/*  */}
 
-      <div className="max-w-[800px] border md:m-auto md:mt-10 p-5 shadow-2xl m-5 flex flex-col md:flex-row mb-10 rounded-2xl">
+      <div className="max-w-[1500px] border md:m-auto md:mt-10 p-5 shadow-2xl m-5 flex flex-col md:flex-row mb-10 rounded-2xl">
         <div className="order-2 md:order-1">
           <img
             src={house6}
@@ -248,7 +252,8 @@ export const HouseListings = () => {
             </div>
           </div>
           <div className="mt-3 text-sm text-gray-500">
-          Ideal for those seeking a serene, fully furnished living environment with convenient access to nearby amenities.
+            Ideal for those seeking a serene, fully furnished living environment
+            with convenient access to nearby amenities.
           </div>
           <div className="flex justify-end">
             <button className="bg-white text-blue-500 px-4 py-2 border border-blue-500 rounded mt-3 hover:bg-blue-600 hover:text-white transition-colors duration-300">
