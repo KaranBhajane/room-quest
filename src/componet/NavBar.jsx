@@ -12,10 +12,12 @@ export const NavBar = () => {
 
   const toggleRegistration = () => {
     setIsRegistrationOpen(!isRegistrationOpen);
+    setIsMenuOpen(false); // Close the menu when toggling registration
   };
 
   const closeMenu = () => {
     setIsMenuOpen(false);
+    setIsRegistrationOpen(false); // Close the registration dropdown menu
   };
 
   return (
