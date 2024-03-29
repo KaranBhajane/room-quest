@@ -1,9 +1,6 @@
-
-
 import React, { useState } from "react";
 import bgimage from "../assets/loginlogoutbg.png";
 import { useNavigate } from "react-router";
-
 
 export const HomeRegistration = () => {
   const [image, setImage] = useState("");
@@ -12,6 +9,7 @@ export const HomeRegistration = () => {
   const [ownerName, setOwnerName] = useState("");
   const [furnishing, setFurnishing] = useState("Semi Furnished");
   const [facilities, setFacilities] = useState([]);
+  const [accommodationType, setAccommodationType] = useState("1BHK");
 
   const navigate = useNavigate();
 
@@ -44,16 +42,19 @@ export const HomeRegistration = () => {
     }
   };
 
+  const handleAccommodationTypeChange = (event) => {
+    setAccommodationType(event.target.value);
+  };
+
   const handleSubmit = (event) => {
     event.preventDefault();
-
     // Handle form submission
     // Add your logic here
   };
 
   return (
     <div className="overflow-hidden min-h-screen">
-      <section className="relative">
+      <section className="relative pt-12 pb-12">
         <div className="absolute inset-0 min-h-screen">
           <img
             src={bgimage}
@@ -163,6 +164,27 @@ export const HomeRegistration = () => {
                 </div>
                 <div>
                   <label className="block mb-2 text-sm font-medium text-gray-600">
+                    Accommodation Type
+                  </label>
+                  <div>
+                    <select
+                      name="accommodationType"
+                      id="accommodationType"
+                      value={accommodationType}
+                      onChange={handleAccommodationTypeChange}
+                      className="bg-gray-50 bg-opacity-70 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    >
+                      <option value="1BHK">1BHK</option>
+                      <option value="2BHK">2BHK</option>
+                      <option value="3BHK">3BHK</option>
+                      <option value="4BHK">4BHK</option>
+                      <option value="5BHK">5BHK</option>
+                      <option value="6BHK">6BHK</option>
+                    </select>
+                  </div>
+                </div>
+                <div>
+                  <label className="block mb-2 text-sm font-medium text-gray-600">
                     Facilities
                   </label>
                   <div className="flex flex-wrap gap-2">
@@ -173,9 +195,7 @@ export const HomeRegistration = () => {
                         onChange={handleFacilitiesChange}
                         className="form-checkbox h-4 w-4 text-gray-600 focus:ring-primary-500 dark:focus:ring-primary-500"
                       />
-                      <span className="text-sm text-gray-700">
-                        Wifi
-                      </span>
+                      <span className="text-sm text-gray-700">Wifi</span>
                     </label>
                     <label className="flex items-center space-x-2">
                       <input
@@ -184,9 +204,7 @@ export const HomeRegistration = () => {
                         onChange={handleFacilitiesChange}
                         className="form-checkbox h-4 w-4 text-gray-600 focus:ring-primary-500 dark:focus:ring-primary-500"
                       />
-                      <span className="text-sm text-gray-700">
-                        Parking
-                      </span>
+                      <span className="text-sm text-gray-700">Parking</span>
                     </label>
                     <label className="flex items-center space-x-2">
                       <input
@@ -195,12 +213,54 @@ export const HomeRegistration = () => {
                         onChange={handleFacilitiesChange}
                         className="form-checkbox h-4 w-4 text-gray-600 focus:ring-primary-500 dark:focus:ring-primary-500"
                       />
+                      <span className="text-sm text-gray-700">Gym</span>
+                    </label>
+                    <label className="flex items-center space-x-2">
+                      <input
+                        type="checkbox"
+                        value="Swimming Pool"
+                        onChange={handleFacilitiesChange}
+                        className="form-checkbox h-4 w-4 text-gray-600 focus:ring-primary-500 dark:focus:ring-primary-500"
+                      />
                       <span className="text-sm text-gray-700">
-                        Gym
+                        Swimming Pool
+                      </span>
+                    </label>
+                    <label className="flex items-center space-x-2">
+                      <input
+                        type="checkbox"
+                        value="Air Conditioning"
+                        onChange={handleFacilitiesChange}
+                        className="form-checkbox h-4 w-4 text-gray-600 focus:ring-primary-500 dark:focus:ring-primary-500"
+                      />
+                      <span className="text-sm text-gray-700">
+                        Air Conditioning
+                      </span>
+                    </label>
+                    <label className="flex items-center space-x-2">
+                      <input
+                        type="checkbox"
+                        value="Laundry"
+                        onChange={handleFacilitiesChange}
+                        className="form-checkbox h-4 w-4 text-gray-600 focus:ring-primary-500 dark:focus:ring-primary-500"
+                      />
+                      <span className="text-sm text-gray-700">Laundry</span>
+                    </label>
+                    {/* Additional facility option */}
+                    <label className="flex items-center space-x-2">
+                      <input
+                        type="checkbox"
+                        value="Food Facility"
+                        onChange={handleFacilitiesChange}
+                        className="form-checkbox h-4 w-4 text-gray-600 focus:ring-primary-500 dark:focus:ring-primary-500"
+                      />
+                      <span className="text-sm text-gray-700">
+                        Food Facility
                       </span>
                     </label>
                   </div>
                 </div>
+
                 <button
                   type="submit"
                   className="w-full text-white bg-blue-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
