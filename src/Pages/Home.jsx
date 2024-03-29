@@ -46,16 +46,16 @@ export const Home = () => {
       {/* Carousel started */}
       <div
         id="default-carousel"
-        className="relative h-[450px] overflow-hidden"
+        className="relative h-[450px] overflow-hidden -mb-72 md:mb-0"
         data-carousel="slide"
       >
-        <div className="relative h-full rounded-lg overflow-hidden">
+        <div className="relative h-full  overflow-hidden">
           <div
             className="duration-700 ease-in-out absolute w-full flex"
             style={{ transform: `translateX(-${currentSlide * 100}%)` }}
           >
-            <img
-              src={carsoul1}
+         <img
+              src={carsoul5}
               className="w-full h-full object-cover"
               alt="..."
             />
@@ -67,12 +67,12 @@ export const Home = () => {
             />
             <img
               src={carsoul3}
-              className="w-full h-full object-cover"
+              className="w-full  h-full object-cover"
               alt="..."
             />
             <img
               src={carsoul4}
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover relative "
               alt="..."
             />
             <img
