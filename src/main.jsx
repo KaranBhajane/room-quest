@@ -9,6 +9,7 @@ import { Login } from "./Pages/Login.jsx";
 import { Register } from "./Pages/Register.jsx";
 import { StudentRegistration } from "./Pages/StudentRegistration.jsx";
 import { HomeRegistration } from "./Pages/HomeRegistration.jsx";
+import { HouseListings } from "./Pages/HouseListings.jsx";
 
 
 import {
@@ -28,6 +29,7 @@ const router = createBrowserRouter(
       <Route path="register" element={<Register />} />
       <Route path="studentregistration" element={<StudentRegistration />} />
       <Route path="homeregistration" element={<HomeRegistration />} />
+      <Route path="houselistings" element={<HouseListings/>}/>
     </Route>
   )
 );
