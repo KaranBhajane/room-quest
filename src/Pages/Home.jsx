@@ -83,7 +83,7 @@ export const Home = () => {
           </div>
         </div>
 
-        <div className="absolute z-30 flex -translate-x-1/2 bottom-5 left-1/2 space-x-3 rtl:space-x-reverse">
+        <div className="absolute z-30 flex -translate-x-1/2 bottom-5 left-1/2 space-x-3 rtl:space-x-reverse hidden md:block">
           {[...Array(5)].map((_, index) => (
             <button
               key={index}
