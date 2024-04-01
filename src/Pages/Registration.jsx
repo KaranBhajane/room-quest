@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import bgimage from "../assets/loginlogoutbg.png";
 import { useNavigate } from "react-router";
 
-export const StudentRegistration = () => {
+export const Registration = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");

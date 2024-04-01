@@ -8,9 +8,8 @@ export const HelpSection = () => {
     <>
       <div
         className="relative h-36 bg-cover bg-bottom"
-        style={{ backgroundImage: `url(${bg})`, backdropFilter: "blur(8px)" }}
-      >
-        <div className="absolute inset-0 bg-gray-900 bg-opacity-50"></div>
+        style={{ backgroundImage: `url(${bg})`, backdropFilter: "blur(8px)" }}>
+        <div className="absolute inset-0 bg-opacity-50"></div>
         <div className="absolute inset-0 flex justify-center items-center ">
           <h2 className="text-3xl font-bold text-center text-white">
             Have Questions? We've All the Answers
@@ -30,7 +29,7 @@ export const HelpSection = () => {
                   What is Room Quest?
                 </Accordion.Title>
                 <Accordion.Content>
-                  <p className="text-lg text-blue-700  p-4">
+                  <p className="text-lg text-blue-700 bg-slate-100 py-4">
                     Our platform serves as a marketplace where homeowners can
                     list their rooms for rent, and users can browse and apply
                     for those rooms.
@@ -45,7 +44,7 @@ export const HelpSection = () => {
                   How can I list my room for rent on this platform?
                 </Accordion.Title>
                 <Accordion.Content>
-                  <p className="text-lg text-blue-700  p-4">
+                  <p className="text-lg text-blue-700 bg-slate-100 py-4">
                     To list your room, you need to sign up as a homeowner,
                     provide details about your property, upload photos, and set
                     rental terms such as price, availability, and any specific
@@ -61,7 +60,7 @@ export const HelpSection = () => {
                   Is there a fee for listing a room on the platform?
                 </Accordion.Title>
                 <Accordion.Content>
-                  <p className="text-lg text-blue-700  p-4">
+                  <p className="text-lg text-blue-700 bg-slate-100 py-4">
                     Yes, there might be a nominal fee for homeowners to list
                     their rooms. This fee helps us maintain and improve the
                     platform for a better user experience.
@@ -76,7 +75,7 @@ export const HelpSection = () => {
                   How do I apply for a room?
                 </Accordion.Title>
                 <Accordion.Content>
-                  <p className="text-lg text-blue-700  p-4">
+                  <p className="text-lg text-blue-700 bg-slate-100 py-4">
                     To apply for a room, you need to create a user account,
                     browse listings, and submit an application for the desired
                     room. Homeowners will review your application and may reach
@@ -92,7 +91,7 @@ export const HelpSection = () => {
                   What information should I include in my room application?
                 </Accordion.Title>
                 <Accordion.Content>
-                  <p className="text-lg text-blue-700  p-4">
+                  <p className="text-lg text-blue-700 bg-slate-100 py-4">
                     Your application should include basic personal information,
                     such as your name, contact details, occupation, and a brief
                     introduction about yourself. Additionally, you can mention
@@ -109,7 +108,7 @@ export const HelpSection = () => {
                   Are there any safety measures in place for users?
                 </Accordion.Title>
                 <Accordion.Content>
-                  <p className="text-lg text-blue-700 p-4">
+                  <p className="text-lg text-blue-700 bg-slate-100 py-4">
                     We prioritize user safety and security. We verify
                     homeowners' identities and encourage users to review and
                     provide feedback on their rental experiences. Additionally,

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import carsoul1 from "../assets/Cvideo.mp4";
+import Carsoul1 from '../assets/carousel1.jpg';
 import carsoul2 from "../assets/Carousel2.png";
 import carsoul3 from "../assets/Carousel3.png";
 import carsoul4 from "../assets/Carousel4.jpg";
@@ -17,10 +18,15 @@ import review2 from "../assets/review2.jpeg";
 import review3 from "../assets/review3.jpeg";
 import review4 from "./../assets/review4.jpeg";
 import Footer from "../componet/Footer";
+import { useNavigate } from "react-router";
+
 
 export const Home = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
+
+  const navigate = useNavigate();
+
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -56,11 +62,16 @@ export const Home = () => {
           >
             <video
               src={carsoul1}
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover hidden sm:block"
               alt="..."
               autoPlay
               loop
               muted
+            />
+            <img
+              src={carsoul5}
+              className="w-full h-full object-cover"
+              alt="..."
             />
             <img
               src={carsoul2}
@@ -77,9 +88,9 @@ export const Home = () => {
               className="w-full h-full object-cover relative "
               alt="..."
             />
-            <img
-              src={carsoul5}
-              className="w-full h-full object-cover"
+             <img
+              src={Carsoul1}
+              className="w-full h-full object-cover sm:hidden block"
               alt="..."
             />
           </div>
@@ -328,7 +339,7 @@ export const Home = () => {
             <div className="space-y-0.5 font-medium dark:text-gray-950 text-left rtl:text-right ms-3">
               <div>Shubham Mahatme</div>
               <div className="text-sm text-gray-500 dark:text-gray-400">
-                Selsforce Developer
+                Salesforce Developer
               </div>
             </div>
           </figcaption>
@@ -386,7 +397,8 @@ export const Home = () => {
 
       {/* reviews ends */}
       <div className="fixed bottom-0 right-0 m-4">
-        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-3xl">
+        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-3xl"
+        onClick={() => navigate("/houselistings")}>
           Find Perfect Accommodation
         </button>
       </div>
