@@ -124,6 +124,16 @@ export const NavBar = () => {
                     </NavLink>
                   </ul>
                 </li>
+                <NavLink to="/houselistings" onClick={closeMenu}>
+                  <li>
+                    <a
+                      href=""
+                      className="block py-2 px-3 text-gray-300 rounded hover:bg-gray-700 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0"
+                    >
+                      Rent a Home
+                    </a>
+                  </li>
+                </NavLink>
                 <NavLink to="/about" onClick={closeMenu}>
                   <li>
                     <a

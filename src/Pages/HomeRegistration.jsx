@@ -231,7 +231,7 @@ export const HomeRegistration = () => {
                 </div>
                 <div>
                   <label className="block mb-2 text-sm font-medium text-gray-600">
-                  Independent/Not Independent
+                  Housing Type
                   </label>
                   <div>
                     <select
