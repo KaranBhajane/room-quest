@@ -117,7 +117,7 @@ export const NavBar = () => {
                         Register Your Room
                       </li>
                     </NavLink>
-                    <NavLink to="/studentregistration" onClick={closeMenu}>
+                    <NavLink to="/registration" onClick={closeMenu}>
                       <li className="py-2 px-3 text-gray-300 hover:bg-gray-700 rounded-md">
                         Register Your Self
                       </li>
