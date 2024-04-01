@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import carsoul1 from "../assets/carousel1 (3).png";
+// import carsoul1 from "../assets/carousel1.png";
 import carsoul2 from "../assets/Carousel2.png";
 import carsoul3 from "../assets/Carousel3.png";
 import carsoul4 from "../assets/Carousel4.png";
@@ -46,7 +46,7 @@ export const Home = () => {
       {/* Carousel started */}
       <div
         id="default-carousel"
-        className="relative h-[450px] overflow-hidden -mb-72 md:mb-0"
+        className="relative h-[450px] overflow-hidden -mb-72 md:mb-0" 
         data-carousel="slide"
       >
         <div className="relative h-full  overflow-hidden">
