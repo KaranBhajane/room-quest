@@ -74,7 +74,7 @@ function Footer() {
           </div>
         </div>
         <div className="bg-gray-700 px-4 py-6 flex justify-center items-center">
-          <p className="text-sm">© RoomQuest™ 2022</p>
+          <p className="text-sm">© RoomQuest™ 2024</p>
           <div className="ml-6 space-x-4">
             <a href="#" className="text-white">
               <i className="fab fa-facebook"></i>

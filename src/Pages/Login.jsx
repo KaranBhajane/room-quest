@@ -2,9 +2,13 @@ import React, { useState } from "react";
 import bgimage from "../assets/loginlogoutbg.png";
 import { useNavigate } from "react-router";
 
+
+
 export const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
+
+  
 
   const handleShowPassword = () => {
     setShowPassword(!showPassword);
@@ -95,9 +99,9 @@ export const Login = () => {
                   Don’t have an account yet?{" "}
                   <span
                     className="font-medium text-primary-600 hover:underline cursor-pointer"
-                    onClick={() => navigate("/signup")}
+                    onClick={() => navigate("/registration")}
                   >
-                    Signup
+                    Register Your Self
                   </span>
                 </p>
               </form>
