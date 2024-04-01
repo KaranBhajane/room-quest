@@ -10,6 +10,8 @@ export const HomeRegistration = () => {
   const [furnishing, setFurnishing] = useState("Semi Furnished");
   const [facilities, setFacilities] = useState([]);
   const [accommodationType, setAccommodationType] = useState("1BHK");
+  const [contactNumber, setContactNumber] = useState("");
+  const [roomDescription, setRoomDescription] = useState("");
 
   const navigate = useNavigate();
 
@@ -46,6 +48,14 @@ export const HomeRegistration = () => {
     setAccommodationType(event.target.value);
   };
 
+  const handleContactNumberChange = (event) => {
+    setContactNumber(event.target.value);
+  };
+
+  const handleRoomDescriptionChange = (event) => {
+    setRoomDescription(event.target.value);
+  };
+
   const handleSubmit = (event) => {
     event.preventDefault();
     // Handle form submission
@@ -53,9 +63,9 @@ export const HomeRegistration = () => {
   };
 
   return (
-    <div className="overflow-hidden min-h-screen">
-      <section className="relative pt-12 pb-12">
-        <div className="absolute inset-0 min-h-screen">
+    <div className="min-h-screen">
+      <section className="relative pt-52 pb-12 ">
+        <div className="absolute inset-0 min-h-[63rem]">
           <img
             src={bgimage}
             alt="Background"
@@ -163,6 +173,42 @@ export const HomeRegistration = () => {
                   </div>
                 </div>
                 <div>
+                  <label
+                    htmlFor="contactNumber"
+                    className="block mb-2 text-sm font-medium text-gray-600"
+                  >
+                    Contact Number
+                  </label>
+                  <input
+                    type="tel"
+                    name="contactNumber"
+                    id="contactNumber"
+                    value={contactNumber}
+                    onChange={handleContactNumberChange}
+                    className="bg-gray-50 bg-opacity-70 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    placeholder="Enter contact number"
+                    required
+                  />
+                </div>
+                <div>
+                  <label
+                    htmlFor="roomDescription"
+                    className="block mb-2 text-sm font-medium text-gray-600"
+                  >
+                    Room Description
+                  </label>
+                  <textarea
+                    name="roomDescription"
+                    id="roomDescription"
+                    value={roomDescription}
+                    onChange={handleRoomDescriptionChange}
+                    className="bg-gray-50 bg-opacity-70 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    placeholder="Enter room description"
+                    rows={4} // Adjust rows as needed
+                    required
+                  ></textarea>
+                </div>
+                <div>
                   <label className="block mb-2 text-sm font-medium text-gray-600">
                     Accommodation Type
                   </label>
@@ -180,6 +226,23 @@ export const HomeRegistration = () => {
                       <option value="4BHK">4BHK</option>
                       <option value="5BHK">5BHK</option>
                       <option value="6BHK">6BHK</option>
+                    </select>
+                  </div>
+                </div>
+                <div>
+                  <label className="block mb-2 text-sm font-medium text-gray-600">
+                  Independent/Not Independent
+                  </label>
+                  <div>
+                    <select
+                      name="accommodationType"
+                      id="accommodationType"
+                      value={accommodationType}
+                      onChange={handleAccommodationTypeChange}
+                      className="bg-gray-50 bg-opacity-70 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    >
+                      <option value="independent">Independent</option>
+                      <option value="notindependent">Not Independent</option>
                     </select>
                   </div>
                 </div>
