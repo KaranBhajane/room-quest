@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-// import carsoul1 from "../assets/carousel1.png";
+import carsoul1 from "../assets/Cvideo.mp4";
 import carsoul2 from "../assets/Carousel2.png";
 import carsoul3 from "../assets/Carousel3.png";
-import carsoul4 from "../assets/Carousel4.png";
+import carsoul4 from "../assets/Carousel4.jpg";
 import carsoul5 from "../assets/Carousel5.png";
 import Privacy from "../assets/privacy.gif";
 import Instant from "../assets/instant-move.gif";
@@ -46,7 +46,7 @@ export const Home = () => {
       {/* Carousel started */}
       <div
         id="default-carousel"
-        className="relative h-[450px] overflow-hidden -mb-72 md:mb-0" 
+        className="relative h-[450px] overflow-hidden -mb-72 md:mb-0"
         data-carousel="slide"
       >
         <div className="relative h-full  overflow-hidden">
@@ -54,12 +54,14 @@ export const Home = () => {
             className="duration-700 ease-in-out absolute w-full flex"
             style={{ transform: `translateX(-${currentSlide * 100}%)` }}
           >
-         <img
-              src={carsoul5}
+            <video
+              src={carsoul1}
               className="w-full h-full object-cover"
               alt="..."
+              autoPlay
+              loop
+              muted
             />
-
             <img
               src={carsoul2}
               className="w-full h-full object-cover"
@@ -388,8 +390,8 @@ export const Home = () => {
           Find Perfect Accommodation
         </button>
       </div>
-    
-    <Footer/> 
+
+      <Footer />
     </div>
   );
 };

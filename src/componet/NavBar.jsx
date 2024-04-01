@@ -23,7 +23,7 @@ export const NavBar = () => {
   return (
     <div className="sticky z-10">
       <div>
-        <nav className="bg-gray-900 border-gray-200 dark:bg-gray-900">
+        <nav className="bg-gray-900 border-gray-200 dark:bg-gray-900 ">
           <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
             <div>
               <a
@@ -84,7 +84,7 @@ export const NavBar = () => {
                     </a>
                   </li>
                 </NavLink>
-              
+
                 <li className="relative mb-3 md:mb-0 ">
                   <a
                     href="#"
@@ -114,7 +114,7 @@ export const NavBar = () => {
                   >
                     <NavLink to="/homeregistration" onClick={closeMenu}>
                       <li className="py-2 px-3 text-gray-300 hover:bg-gray-700 rounded-md">
-                       Register Your Room
+                        Register Your Room
                       </li>
                     </NavLink>
                     <NavLink to="/studentregistration" onClick={closeMenu}>
@@ -124,6 +124,16 @@ export const NavBar = () => {
                     </NavLink>
                   </ul>
                 </li>
+                <NavLink to="/houselistings" onClick={closeMenu}>
+                  <li>
+                    <a
+                      href=""
+                      className="block py-2 px-3 text-gray-300 rounded hover:bg-gray-700 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0"
+                    >
+                      Rent a Home
+                    </a>
+                  </li>
+                </NavLink>
                 <NavLink to="/about" onClick={closeMenu}>
                   <li>
                     <a
