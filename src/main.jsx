@@ -10,6 +10,7 @@ import { Register } from "./Pages/Register.jsx";
 import { Registration } from "./Pages/Registration.jsx";
 import { HomeRegistration } from "./Pages/HomeRegistration.jsx";
 import { HouseListings } from "./Pages/HouseListings.jsx";
+import {Careers} from './Pages/Careers.jsx'
 
 
 import {
@@ -30,6 +31,7 @@ const router = createBrowserRouter(
       <Route path="registration" element={<Registration />} />
       <Route path="homeregistration" element={<HomeRegistration />} />
       <Route path="houselistings" element={<HouseListings/>}/>
+      <Route path="careers" element={<Careers/>}/>
     </Route>
   )
 );
