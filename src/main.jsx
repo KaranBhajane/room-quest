@@ -10,7 +10,10 @@ import { Register } from "./Pages/Register.jsx";
 import { Registration } from "./Pages/Registration.jsx";
 import { HomeRegistration } from "./Pages/HomeRegistration.jsx";
 import { HouseListings } from "./Pages/HouseListings.jsx";
-import { Testimonial } from "./Pages/Testimonial.jsx";
+
+import {Careers} from './Pages/Careers.jsx'
+
+
 
 import {
   createBrowserRouter,
@@ -29,8 +32,12 @@ const router = createBrowserRouter(
       <Route path="register" element={<Register />} />
       <Route path="registration" element={<Registration />} />
       <Route path="homeregistration" element={<HomeRegistration />} />
+
+      <Route path="houselistings" element={<HouseListings/>}/>
+      <Route path="careers" element={<Careers/>}/>
       <Route path="houselistings" element={<HouseListings />} />
       <Route path="testimonial" element={<Testimonial />} />
+
     </Route>
   )
 );
