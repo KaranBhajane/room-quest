@@ -11,6 +11,7 @@ import { Registration } from "./Pages/Registration.jsx";
 import { HomeRegistration } from "./Pages/HomeRegistration.jsx";
 import { HouseListings } from "./Pages/HouseListings.jsx";
 import {Careers} from './Pages/Careers.jsx'
+import { Mission } from "./Pages/Mission.jsx";
 
 
 import {
@@ -19,6 +20,7 @@ import {
   Route,
   RouterProvider,
 } from "react-router-dom";
+
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -32,6 +34,7 @@ const router = createBrowserRouter(
       <Route path="homeregistration" element={<HomeRegistration />} />
       <Route path="houselistings" element={<HouseListings/>}/>
       <Route path="careers" element={<Careers/>}/>
+      <Route path="mission" element={<Mission/>}/>
     </Route>
   )
 );
