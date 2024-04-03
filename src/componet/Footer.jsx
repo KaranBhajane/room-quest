@@ -17,7 +17,7 @@ function Footer() {
                 <a href="#">Careers</a>
               </li>
               <li>
-                <a href="#">Brand Center</a>
+                <a href="#">Mission</a>
               </li>
               <li>
                 <a href="#">Blog</a>

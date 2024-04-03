@@ -14,13 +14,14 @@ import { Testimonial } from "./Pages/Testimonial.jsx";
 import {Careers} from './Pages/Careers.jsx'
 
 
-
 import {
   createBrowserRouter,
   createRoutesFromElements,
   Route,
   RouterProvider,
 } from "react-router-dom";
+import { Mission } from "./Pages/Mission.jsx";
+
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -32,12 +33,10 @@ const router = createBrowserRouter(
       <Route path="register" element={<Register />} />
       <Route path="registration" element={<Registration />} />
       <Route path="homeregistration" element={<HomeRegistration />} />
-
+      <Route path="testimonials" element={<Testimonial/>}/>
       <Route path="houselistings" element={<HouseListings/>}/>
       <Route path="careers" element={<Careers/>}/>
-      <Route path="houselistings" element={<HouseListings />} />
-      <Route path="testimonial" element={<Testimonial />} />
-
+      <Route path="mission" element={<Mission/>}/>
     </Route>
   )
 );
