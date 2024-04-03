@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import carsoul1 from "../assets/Cvideo.mp4";
-import Carsoul1 from '../assets/carousel1.jpg';
+import Carsoul1 from "../assets/carousel1.jpg";
 import carsoul2 from "../assets/Carousel2.png";
 import carsoul3 from "../assets/Carousel3.png";
 import carsoul4 from "../assets/Carousel4.jpg";
@@ -17,16 +17,13 @@ import review1 from "../assets/review1.jpeg";
 import review2 from "../assets/review2.jpeg";
 import review3 from "../assets/review3.jpeg";
 import review4 from "./../assets/review4.jpeg";
+import chat from "./../assets/chat-bot.gif";
+import CountUp from "react-countup";
 import Footer from "../componet/Footer";
-import { useNavigate } from "react-router";
-
 
 export const Home = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
-
-  const navigate = useNavigate();
-
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -88,7 +85,7 @@ export const Home = () => {
               className="w-full h-full object-cover relative "
               alt="..."
             />
-             <img
+            <img
               src={Carsoul1}
               className="w-full h-full object-cover sm:hidden block"
               alt="..."
@@ -194,45 +191,53 @@ export const Home = () => {
       >
         <div>
           <img
-            class="object-cover w-full rounded-t-lg h-96 md:h-96 md:w-full md:rounded-none mt-12"
+            class="object-cover rounded-t-lg w-[90%] m-auto md:h-96 md:w-full md:rounded-none mt-12"
             src={Student}
             alt=""
           />
         </div>
-        <div class="flex flex-col justify-between p-4 leading-normal md:ml-14">
-          <div className="flex flex-col lg:flex-row justify-center items-center py-12">
-            <div className="max-w-4xl mx-auto px-4 md:w-full">
-              <div className="flex flex-wrap justify-around mb-9 ">
-                <div className="text-center w-full md:w-1/2 lg:w-1/4 p-4">
-                  <div className="text-4xl font-bold">2,00,000+</div>
-                  <div className="text-gray-500 mt-4">
-                    <pre>Happy customers </pre>
-                  </div>
-                </div>
-                <div className="text-center w-full md:w-1/2 lg:w-1/4 p-4">
-                  <div className="text-4xl font-bold">1,00,000+</div>
-                  <div className="text-gray-500 mt-4">
-                    <pre>Houses across India</pre>
-                  </div>
-                </div>
-              </div>
-              <div className="flex flex-wrap justify-around">
-                <div className="text-center w-full md:w-1/2 lg:w-1/4 p-4">
-                  <div className="text-4xl font-bold">9+</div>
-                  <div className="text-gray-500 mt-4">
-                    <pre>Cities in India</pre>
-                  </div>
-                </div>
-                <div className="text-center w-full md:w-1/2 lg:w-1/4 p-4">
-                  <div className="text-4xl font-bold">₹38+</div>
-                  <div className="text-gray-500 mt-4">
-                    <pre>Savings made on brokerage</pre>
-                  </div>
-                </div>
-              </div>
+        <div className="flex flex-col justify-between p-4 leading-normal md:ml-14">
+    <div className="flex flex-col lg:flex-row justify-center items-center py-12">
+      <div className="max-w-4xl mx-auto px-4 md:w-full">
+        <div className="flex flex-wrap justify-around mb-9 ">
+          <div className="text-center w-full md:w-1/2 lg:w-1/4 p-4">
+            <div className="text-4xl font-bold">
+              <CountUp end={200000} duration={2.5} />
+            </div>
+            <div className="text-gray-500 mt-4">
+              <pre>Happy customers </pre>
+            </div>
+          </div>
+          <div className="text-center w-full md:w-1/2 lg:w-1/4 p-4">
+            <div className="text-4xl font-bold">
+              <CountUp end={100000} duration={2.5} />
+            </div>
+            <div className="text-gray-500 mt-4">
+              <pre>Houses across India</pre>
             </div>
           </div>
         </div>
+        <div className="flex flex-wrap justify-around">
+          <div className="text-center w-full md:w-1/2 lg:w-1/4 p-4">
+            <div className="text-4xl font-bold">
+              <CountUp end={9} duration={2.5} />
+            </div>
+            <div className="text-gray-500 mt-4">
+              <pre>Cities in India</pre>
+            </div>
+          </div>
+          <div className="text-center w-full md:w-1/2 lg:w-1/4 p-4">
+            <div className="text-4xl font-bold">
+              <CountUp end={38} duration={2.5} prefix="₹" suffix="+" />
+            </div>
+            <div className="text-gray-500 mt-4">
+              <pre>Savings made on brokerage</pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
       </div>
 
       {/*  */}
@@ -282,7 +287,7 @@ export const Home = () => {
           </button>
         </div>
         <img
-          class=" w-full md:w-[500px] md:ml-9  h-96 md:h-[500px] md:mr-11 md:rounded-none md:mt-14"
+          class="md:ml-9  h-96 md:w-[20%] w-30% md:mr-11 md:rounded-none md:mt-14"
           src={threecard}
           alt=""
         />
@@ -396,13 +401,12 @@ export const Home = () => {
       </div>
 
       {/* reviews ends */}
-      <div className="fixed bottom-0 right-0 m-4">
-        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-3xl"
-        onClick={() => navigate("/houselistings")}>
-          Find Perfect Accommodation
+      <div className="fixed bottom-0 right-0 m-4 w-[60px]">
+        <button>
+          <img src={chat} onClick={() => navigate("/testimonial")} />
         </button>
       </div>
-
+      {/*  */}
       <Footer />
     </div>
   );
