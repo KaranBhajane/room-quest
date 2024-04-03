@@ -15,12 +15,12 @@ export const About = () => {
         <p className=" text-center md:mt-20 font-semibold mt-10">
           YOUR ACCOMODATION SOLUTION
         </p>
-        <h1 className="text-center text-5xl md:pt-5 font-bold mt-3 ">
+        <h1 className="text-center md:text-5xl text-4xl md:pt-5 font-bold mt-3 ">
           Find Your Perfect <br />
           Space with RoomQuest
         </h1>
-        <img src={About1} className="h-72 mt-10 m-auto bg-gray-300" />
-        <div className="md:w-[1000px] m-auto mt-7">
+        <img src={About1} className="md:w-[70%] w-60%  m-auto mt-10  bg-gray-300" />
+        <div className="w-[80%] m-auto mt-7">
           <p className="text-center ">
             RoomQuest is a revolutionary platform designed to simplify the
             process of finding accommodation for students and employees
@@ -40,16 +40,16 @@ export const About = () => {
 
         <a
           href="#"
-          class="flex flex-col items-center shadow md:flex-row md:w-[100%] md:h-[600px] m-auto mt-5"
+          class="flex flex-col items-center shadow md:flex-row md:w-[100%] w-[60%] md:h-[600px] m-auto mt-5"
         >
           <div class="flex flex-col justify-between p-4 leading-normal md:ml-20">
-            <h3 class="mb-2 text-6xl font-bold tracking-tight text-gray-900 mb-6 text-center">
+            <h3 class="mb-2 text-5xl font-bold tracking-tight text-gray-900 mb-6 text-center">
               Discover Your Perfect
               <br /> Room with RoomQuest!
             </h3>
           </div>
           <img
-            class="object-cover w-full md:w-[500px] md:ml-14  h-96 md:h-auto md:h-[500px] md:rounded-none"
+            class="object-cover md:w-[500px] md:ml-14 w-[100%] md:h-auto md:h-[500px] md:rounded-none"
             src={About2}
             alt=""
           />
@@ -59,11 +59,11 @@ export const About = () => {
 
         <div>
           <h1 className="text-center font-bold text-6xl mt-14">Our Services</h1>
-          <p className="text-center font-semibold text-5xl mt-7">
+          <p className="text-center font-semibold md:text-5xl text-4xl mt-7">
             the key services <br />
             offered by RoomQuest
           </p>
-          <img src={About3} className="m-auto mt-14 h-80" />
+          <img src={About3} className="m-auto mt-14 md:w-[40%] w-[100%]" />
           <div className="flex justify-center">
             <ul className=" text-3xl  mt-2 ml-5">
               <li>&#x2022; Room search and booking platform</li>
@@ -83,7 +83,7 @@ export const About = () => {
         <div className="text-center font-bold text-6xl mt-20">
           Why Choose RoomQuest
         </div>
-        <img src={About4} className="m-auto mt-10 h-72" />
+        <img src={About4} className="m-auto mt-10 md:w-[70%] w-[100%]" />
         <div className="md:w-[1000px] m-auto mt-4">
           <ul className="ml-5 md:mt-5">
             <li>

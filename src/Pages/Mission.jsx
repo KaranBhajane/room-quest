@@ -8,7 +8,7 @@ export const Mission = () => {
   return(
   <>
     <div className="container bg-blue-100  w-screen justify-items-center h-full md:grid md:grid-cols-3 md:content-start   ">
-        <div className=" flex flex-col justify-center items-center p-4 gap-2 md:mt-20 md:ml-10 md:gap-8">
+        <div className=" flex flex-col justify-center items-center p-4 gap-2 md:mt-20 md:ml-10 md:gap-8 md:mb-5">
         <img src={sign} alt="" srcSet="" className="h-52"/>
             <h2 className="text-2xl font-bold shadow-2xl underline underline-offset-4">MISSION</h2>
             <p className="px-4">At RoomQuest, our mission is to simplify the process of finding and renting rooms by providing a
@@ -17,7 +17,7 @@ export const Mission = () => {
                  needs, preferences, and budget.
             </p>
         </div>
-        <div className="flex flex-col justify-center items-center p-4 gap-2 md:mt-20 md:gap-8">
+        <div className="flex flex-col justify-center items-center p-4 gap-2 md:mt-20 md:gap-8 md:mb-5">
             <img src={vision} alt="" srcSet="" className="h-52"/>
             <h2 className="text-2xl font-bold shadow-2xl underline underline-offset-4">OUR VISION</h2>
             <p className="px-4">
@@ -27,7 +27,7 @@ export const Mission = () => {
                by innovative technology and personalized support.
             </p>
         </div>
-        <div className="flex flex-col justify-center items-center p-4 gap-2 md:mt-20 md:mr-10 md:gap-8">
+        <div className="flex flex-col justify-center items-center p-4 gap-2 md:mt-20 md:mr-10 md:gap-8 md:mb-5">
             <img src={diamond} alt="" srcSet="" className="h-52" />
             <h2 className="text-2xl font-bold shadow-2xl underline underline-offset-4">OUR Values</h2>
             <p className="px-4">
