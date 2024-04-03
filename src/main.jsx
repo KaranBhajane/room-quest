@@ -10,7 +10,7 @@ import { Register } from "./Pages/Register.jsx";
 import { Registration } from "./Pages/Registration.jsx";
 import { HomeRegistration } from "./Pages/HomeRegistration.jsx";
 import { HouseListings } from "./Pages/HouseListings.jsx";
-
+import { Testimonial } from "./Pages/Testimonial.jsx";
 import {Careers} from './Pages/Careers.jsx'
 
 

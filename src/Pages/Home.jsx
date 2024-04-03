@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router";
 import carsoul1 from "../assets/Cvideo.mp4";
 import Carsoul1 from "../assets/carousel1.jpg";
 import carsoul2 from "../assets/Carousel2.png";
@@ -24,6 +25,8 @@ import Footer from "../componet/Footer";
 export const Home = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
+
+  const navigate = useNavigate();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
