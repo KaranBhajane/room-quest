@@ -12,8 +12,8 @@ function Footer() {
             <div>
               <h3 className="text-lg font-semibold">Company</h3>
               <ul className="mt-4 cursor-pointer">
-                <li>
-                  <a href="#">About</a>
+                <li onClick={() => navigate("/about")}>
+                  <span> About</span>
                 </li>
                 <li onClick={() => navigate("/careers")}>
                   <span>Careers</span>
@@ -28,18 +28,15 @@ function Footer() {
             </div>
             <div>
               <h3 className="text-lg font-semibold">Help Center</h3>
-              <ul className="mt-4">
-                <li>
-                  <a href="#">Discord Server</a>
+              <ul className="mt-4 cursor-pointer">
+                <li onClick={() => navigate("/insta")}>
+                  <span>Instagram</span>
                 </li>
                 <li>
-                  <a href="#">Twitter</a>
+                  <span>Twitter</span>
                 </li>
                 <li>
-                  <a href="#">Facebook</a>
-                </li>
-                <li>
-                  <a href="#">Contact Us</a>
+                  <span>Facebook</span>
                 </li>
               </ul>
             </div>
