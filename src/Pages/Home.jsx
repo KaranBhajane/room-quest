@@ -370,7 +370,7 @@ export const Home = () => {
               alt="profile picture"
             />
             <div class="space-y-0.5 font-medium  text-left rtl:text-right ms-3">
-              <div>Parag Dahate</div>
+              <div>Parag Dahat</div>
               <div class="text-sm text-gray-500 dark:text-gray-400">
                 FullStack Developer
               </div>
