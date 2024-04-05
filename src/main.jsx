@@ -6,7 +6,7 @@ import ReactDOM from "react-dom/client";
 import { store } from "./redux/store.jsx";
 import { Provider } from "react-redux";
 import {
-  Home,About,HelpSection,Login,Register,Registration,HomeRegistration,HouseListings,Mission,Careers
+  Home,About,HelpSection,Login,Register,Registration,HomeRegistration,HouseListings,Mission,Careers,Insta
 } from "./componet/index.jsx"
 
 import {
@@ -29,6 +29,7 @@ const router = createBrowserRouter(
       <Route path="houselistings" element={<HouseListings/>}/>
       <Route path="mission" element={<Mission/>}/>
       <Route path="careers" element={<Careers/>}/>
+      <Route path="insta" element={<Insta/>}/>
     </Route>
   )
 );

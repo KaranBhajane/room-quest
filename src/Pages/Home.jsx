@@ -11,7 +11,7 @@ import Instant from "../assets/instant-move.gif";
 import Deposit from "../assets/Deposit.gif";
 import experience from "../assets/experience.gif";
 import threecard from "../assets/threecardimg.png";
-import Student from "../assets/Student(1).jpg";
+import Student from "../assets/Student(1).png";
 import vector from "../assets/vector1.png";
 import banner from "../assets/banner.png";
 import review1 from "../assets/review1.jpeg";
@@ -20,11 +20,18 @@ import review3 from "../assets/review3.jpeg";
 import review4 from "./../assets/review4.jpeg";
 import chat from "./../assets/chat-bot.gif";
 import CountUp from "react-countup";
+import Btn from "./../assets/home.png";
 import Footer from "../componet/Footer";
 
 export const Home = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [isContentVisible, setIsContentVisible] = useState(false);
+
+  const toggleContentVisibility = (event) => {
+    event.preventDefault();
+    setIsContentVisible(!isContentVisible);
+  };
 
   const navigate = useNavigate();
 
@@ -200,47 +207,47 @@ export const Home = () => {
           />
         </div>
         <div className="flex flex-col justify-between p-4 leading-normal md:ml-14">
-    <div className="flex flex-col lg:flex-row justify-center items-center py-12">
-      <div className="max-w-4xl mx-auto px-4 md:w-full">
-        <div className="flex flex-wrap justify-around mb-9 ">
-          <div className="text-center w-full md:w-1/2 lg:w-1/4 p-4">
-            <div className="text-4xl font-bold">
-              <CountUp end={200000} duration={2.5} />
-            </div>
-            <div className="text-gray-500 mt-4">
-              <pre>Happy customers </pre>
-            </div>
-          </div>
-          <div className="text-center w-full md:w-1/2 lg:w-1/4 p-4">
-            <div className="text-4xl font-bold">
-              <CountUp end={100000} duration={2.5} />
-            </div>
-            <div className="text-gray-500 mt-4">
-              <pre>Houses across India</pre>
+          <div className="flex flex-col lg:flex-row justify-center items-center py-12">
+            <div className="max-w-4xl mx-auto px-4 md:w-full">
+              <div className="flex flex-wrap justify-around mb-9 ">
+                <div className="text-center w-full md:w-1/2 lg:w-1/4 p-4">
+                  <div className="text-4xl font-bold">
+                    <CountUp end={200000} duration={2.5} />
+                  </div>
+                  <div className="text-gray-500 mt-4">
+                    <pre>Happy customers </pre>
+                  </div>
+                </div>
+                <div className="text-center w-full md:w-1/2 lg:w-1/4 p-4">
+                  <div className="text-4xl font-bold">
+                    <CountUp end={100000} duration={2.5} />
+                  </div>
+                  <div className="text-gray-500 mt-4">
+                    <pre>Houses across India</pre>
+                  </div>
+                </div>
+              </div>
+              <div className="flex flex-wrap justify-around">
+                <div className="text-center w-full md:w-1/2 lg:w-1/4 p-4">
+                  <div className="text-4xl font-bold">
+                    <CountUp end={9} duration={2.5} />
+                  </div>
+                  <div className="text-gray-500 mt-4">
+                    <pre>Cities in India</pre>
+                  </div>
+                </div>
+                <div className="text-center w-full md:w-1/2 lg:w-1/4 p-4">
+                  <div className="text-4xl font-bold">
+                    <CountUp end={38} duration={2.5} prefix="₹" suffix="+" />
+                  </div>
+                  <div className="text-gray-500 mt-4">
+                    <pre>Savings made on brokerage</pre>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-        <div className="flex flex-wrap justify-around">
-          <div className="text-center w-full md:w-1/2 lg:w-1/4 p-4">
-            <div className="text-4xl font-bold">
-              <CountUp end={9} duration={2.5} />
-            </div>
-            <div className="text-gray-500 mt-4">
-              <pre>Cities in India</pre>
-            </div>
-          </div>
-          <div className="text-center w-full md:w-1/2 lg:w-1/4 p-4">
-            <div className="text-4xl font-bold">
-              <CountUp end={38} duration={2.5} prefix="₹" suffix="+" />
-            </div>
-            <div className="text-gray-500 mt-4">
-              <pre>Savings made on brokerage</pre>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
       </div>
 
       {/*  */}
@@ -257,10 +264,36 @@ export const Home = () => {
             Here are the biggest enterprise technology acquisitions of 2021 so
             far, in reverse chronological order.
           </p>
-          <button className="bg-gray-900 border-gray-200 dark:bg-gray-900 text-white w-fit p-3 rounded-3xl m-auto">
-            <span className="hover:text-blue-700">Explore Now!</span>
+          <button
+            className="bg-black text-white w-fit m-auto rounded-full p-3"
+            onClick={toggleContentVisibility}
+          >
+            Explore Now!!
           </button>
+          {isContentVisible && (
+            <div className="w-[100%] border-neutral-400 shadow-2xl p-4 border-2 mt-8 flex justify-between">
+              <div>
+                <img src={Btn} alt="" className="w-[90%]" />
+              </div>
+              <div>
+                RoomQuest is not just a platform; it's your trusted companion in
+                finding the perfect home away from home. Our mission is to
+                revolutionize the way you search for accommodation, offering a
+                seamless experience tailored to your needs. With RoomQuest,
+                you're not just renting room; you're embarking on a journey of
+                hassle-free living,supported by cutting-edge technology and
+                dedicated customer service.
+                <button
+                  className="bg-black text-white w-fit m-auto rounded-full p-3 mt-3 justify-end "
+                  onClick={() => navigate("/about")}
+                >
+                  More
+                </button>
+              </div>
+            </div>
+          )}
         </div>
+
         <img
           class="object-cover w-full md:w-[500px] md:ml-14  h-96 md:h-auto md:h-96 md:rounded-none"
           src={vector}
@@ -285,9 +318,11 @@ export const Home = () => {
           <p class="mb-3 font-normal text-gray-700 dark:text-gray-400 md:text-2xl  mb-7 text-center">
             Discover hassle-free room finding for students and employees.
           </p>
-          <button className="bg-gray-900 border-gray-200 dark:bg-gray-900 text-white w-fit p-3 rounded-3xl m-auto">
-            <span className="hover:text-blue-700">Know More!</span>
-          </button>
+          <p class="mb-3 text-base w-[60%] m-auto text-gray-500 dark:text-gray-400 text-center">
+            Experience the convenience of finding the perfect room tailored to
+            your needs, whether you're a student looking for a quiet study space
+            or an employee seeking a comfortable workspace.
+          </p>
         </div>
         <img
           class="md:ml-9  h-96 md:w-[20%] w-30% md:mr-11 md:rounded-none md:mt-14"
