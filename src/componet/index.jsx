@@ -8,6 +8,6 @@ export { HomeRegistration } from "../Pages/HomeRegistration.jsx";
 export { HouseListings } from "../Pages/HouseListings.jsx"
 export { Mission } from "../Pages/Mission.jsx"
 export { Careers } from "../Pages/Careers.jsx"
-export { Insta } from "../Pages/Insta.jsx"
+export {Blog} from "../Pages/Blog.jsx"
 
 
