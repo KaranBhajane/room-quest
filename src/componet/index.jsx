@@ -9,5 +9,6 @@ export { HouseListings } from "../Pages/HouseListings.jsx"
 export { Mission } from "../Pages/Mission.jsx"
 export { Careers } from "../Pages/Careers.jsx"
 export {Blog} from "../Pages/Blog.jsx"
+export {Testimonial} from "../Pages/Testimonial.jsx"
 
 

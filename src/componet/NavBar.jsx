@@ -64,96 +64,52 @@ export const NavBar = () => {
               id="navbar-default"
             >
               <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-800 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-gray-900">
-                <NavLink to="/" onClick={closeMenu}>
-                  <li>
-                    <a
-                      href=""
-                      className="block py-2 px-3 text-white hover:text-blue-700 rounded md:bg-transparent md:p-0"
-                    >
-                      Home
-                    </a>
-                  </li>
-                </NavLink>
-                <NavLink to="/login" onClick={closeMenu}>
-                  <li>
-                    <a
-                      href=""
-                      className="block py-2 px-3 text-gray-300 rounded hover:bg-gray-700 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0"
-                    >
-                      Login
-                    </a>
-                  </li>
-                </NavLink>
+                <li>
+                  <NavLink to="/" onClick={closeMenu} className="block py-2 px-3 text-white hover:text-blue-700 rounded md:bg-transparent md:p-0">
+                    Home
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to="/login" onClick={closeMenu} className="block py-2 px-3 text-gray-300 rounded hover:bg-gray-700 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0">
+                    Login
+                  </NavLink>
+                </li>
 
-                <li className="relative mb-3 md:mb-0 ">
-                  <a
-                    href="#"
-                    className="block py-2 px-3 text-gray-300 rounded hover:bg-gray-700 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 flex items-center"
-                    onClick={toggleRegistration}
-                  >
+                <li className="relative mb-3 md:mb-0">
+                  <a href="#" className="block py-2 px-3 text-gray-300 rounded hover:bg-gray-700 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 flex items-center" onClick={toggleRegistration}>
                     Register
-                    <svg
-                      className="w-4 h-4 ml-1"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="M19 9l-7 7-7-7"
-                      ></path>
+                    <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
                     </svg>
                   </a>
-                  <ul
-                    className={`absolute top-full left-0  bg-gray-800 border border-gray-100 rounded-lg p-2 w-[13rem] ${
-                      isRegistrationOpen ? "" : "hidden"
-                    }`}
-                  >
-                    <NavLink to="/homeregistration" onClick={closeMenu}>
-                      <li className="py-2 px-3 text-gray-300 hover:bg-gray-700 rounded-md">
+                  <ul className={`absolute top-full left-0 bg-gray-800 border border-gray-100 rounded-lg p-2 w-[13rem] ${isRegistrationOpen ? "" : "hidden"}`}>
+                    <li>
+                      <NavLink to="/homeregistration" onClick={closeMenu} className="py-2 px-3 text-gray-300 hover:bg-gray-700 rounded-md">
                         Register Your Room
-                      </li>
-                    </NavLink>
-                    <NavLink to="/registration" onClick={closeMenu}>
-                      <li className="py-2 px-3 text-gray-300 hover:bg-gray-700 rounded-md">
+                      </NavLink>
+                    </li>
+                    <li className="my-2">
+                      <NavLink to="/registration" onClick={closeMenu} className="py-2 px-3 text-gray-300 hover:bg-gray-700 rounded-md">
                         Register Your Self
-                      </li>
-                    </NavLink>
+                      </NavLink>
+                    </li>
                   </ul>
                 </li>
-                <NavLink to="/houselistings" onClick={closeMenu}>
-                  <li>
-                    <a
-                      href=""
-                      className="block py-2 px-3 text-gray-300 rounded hover:bg-gray-700 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0"
-                    >
-                      Rent a Home
-                    </a>
-                  </li>
-                </NavLink>
-                <NavLink to="/about" onClick={closeMenu}>
-                  <li>
-                    <a
-                      href=""
-                      className="block py-2 px-3 text-gray-300 rounded hover:bg-gray-700 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0"
-                    >
-                      About Us
-                    </a>
-                  </li>
-                </NavLink>
-                <NavLink to="/helpsection" onClick={closeMenu}>
-                  <li>
-                    <a
-                      href=""
-                      className="block py-2 px-3 text-gray-300 rounded hover:bg-gray-700 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0"
-                    >
-                      Help Section
-                    </a>
-                  </li>
-                </NavLink>
+                <li>
+                  <NavLink to="/houselistings" onClick={closeMenu} className="block py-2 px-3 text-gray-300 rounded hover:bg-gray-700 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0">
+                    Rent a Home
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to="/about" onClick={closeMenu} className="block py-2 px-3 text-gray-300 rounded hover:bg-gray-700 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0">
+                    About Us
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to="/helpsection" onClick={closeMenu} className="block py-2 px-3 text-gray-300 rounded hover:bg-gray-700 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0">
+                    Help Section
+                  </NavLink>
+                </li>
               </ul>
             </div>
           </div>

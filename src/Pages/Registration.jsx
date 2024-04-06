@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import bgimage from "../assets/loginlogoutbg.png";
 import { useNavigate } from "react-router";
+import toast from "react-hot-toast";
 
 export const Registration = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -56,12 +57,11 @@ export const Registration = () => {
 
     // Check if password and confirm password match
     if (password !== confirmPassword) {
-      alert("Password and Confirm Password do not match!");
+      toast.error("Password not matched");
       return;
     }
-
-    // Handle form submission
-    // Add your logic here
+    toast.success("Registration Successful");
+    navigate("/houselistings");
   };
 
   return (
