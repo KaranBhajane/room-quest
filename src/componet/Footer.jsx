@@ -21,15 +21,15 @@ function Footer() {
                 <li onClick={() => navigate("/mission")}>
                   <span>Mission</span>
                 </li>
-                <li>
-                  <a href="#">Blog</a>
+                <li onClick={() => navigate("/blogs")}>
+                  <span>Blog</span>
                 </li>
               </ul>
             </div>
             <div>
               <h3 className="text-lg font-semibold">Help Center</h3>
               <ul className="mt-4 cursor-pointer">
-                <li onClick={() => navigate("/insta")}>
+                <li>
                   <span>Instagram</span>
                 </li>
                 <li>
