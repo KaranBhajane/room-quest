@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import bgimage from "../assets/loginlogoutbg.png";
 import { useNavigate } from "react-router";
+import toast from "react-hot-toast";
 
 export const HomeRegistration = () => {
-  const [image, setImage] = useState("");
+  const [image, setImage] = useState(""); // State to store the image file
   const [price, setPrice] = useState("");
   const [location, setLocation] = useState("");
   const [ownerName, setOwnerName] = useState("");
@@ -12,10 +13,10 @@ export const HomeRegistration = () => {
   const [accommodationType, setAccommodationType] = useState("1BHK");
   const [contactNumber, setContactNumber] = useState("");
   const [roomDescription, setRoomDescription] = useState("");
-
   const navigate = useNavigate();
 
   const handleImageUpload = (event) => {
+    // Save the selected image file
     setImage(event.target.files[0]);
   };
 
@@ -58,8 +59,24 @@ export const HomeRegistration = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // Handle form submission
-    // Add your logic here
+    const homeData = {
+      // Convert the image file to a base64 string and store it
+      image: URL.createObjectURL(image),
+      price,
+      location,
+      ownerName,
+      furnishing,
+      facilities,
+      accommodationType,
+      contactNumber,
+      roomDescription,
+    };
+
+    localStorage.setItem("registeredHome", JSON.stringify(homeData));
+
+    navigate("/houselistings");
+
+    toast.success("Home Registration Successful");
   };
 
   return (
@@ -165,30 +182,56 @@ export const HomeRegistration = () => {
                         onChange={handleFurnishingChange}
                         className="bg-gray-50 bg-opacity-70 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                       >
-                        <option value="Fully Furnished">Fully Furnished</option>
                         <option value="Semi Furnished">Semi Furnished</option>
-                        <option value="Not Furnished">Not Furnished</option>
+                        <option value="Fully Furnished">Fully Furnished</option>
+                        <option value="Unfurnished">Unfurnished</option>
                       </select>
                     </div>
                   </div>
                 </div>
-                <div>
-                  <label
-                    htmlFor="contactNumber"
-                    className="block mb-2 text-sm font-medium text-gray-600"
-                  >
-                    Contact Number
-                  </label>
-                  <input
-                    type="tel"
-                    name="contactNumber"
-                    id="contactNumber"
-                    value={contactNumber}
-                    onChange={handleContactNumberChange}
-                    className="bg-gray-50 bg-opacity-70 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    placeholder="Enter contact number"
-                    required
-                  />
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {/* Facilities checkboxes */}
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <label
+                      htmlFor="accommodationType"
+                      className="block mb-2 text-sm font-medium text-gray-600"
+                    >
+                      Accommodation Type
+                    </label>
+                    <select
+                      name="accommodationType"
+                      id="accommodationType"
+                      value={accommodationType}
+                      onChange={handleAccommodationTypeChange}
+                      className="bg-gray-50 bg-opacity-70 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      required
+                    >
+                      <option value="1BHK">1BHK</option>
+                      <option value="2BHK">2BHK</option>
+                      <option value="3BHK">3BHK</option>
+                      <option value="4BHK+">4BHK+</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label
+                      htmlFor="contactNumber"
+                      className="block mb-2 text-sm font-medium text-gray-600"
+                    >
+                      Contact Number
+                    </label>
+                    <input
+                      type="tel"
+                      name="contactNumber"
+                      id="contactNumber"
+                      value={contactNumber}
+                      onChange={handleContactNumberChange}
+                      className="bg-gray-50 bg-opacity-70 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      placeholder="Enter contact number"
+                      required
+                    />
+                  </div>
                 </div>
                 <div>
                   <label
@@ -202,49 +245,11 @@ export const HomeRegistration = () => {
                     id="roomDescription"
                     value={roomDescription}
                     onChange={handleRoomDescriptionChange}
+                    rows="4"
                     className="bg-gray-50 bg-opacity-70 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     placeholder="Enter room description"
-                    rows={4} // Adjust rows as needed
                     required
                   ></textarea>
-                </div>
-                <div>
-                  <label className="block mb-2 text-sm font-medium text-gray-600">
-                    Accommodation Type
-                  </label>
-                  <div>
-                    <select
-                      name="accommodationType"
-                      id="accommodationType"
-                      value={accommodationType}
-                      onChange={handleAccommodationTypeChange}
-                      className="bg-gray-50 bg-opacity-70 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    >
-                      <option value="1BHK">1BHK</option>
-                      <option value="2BHK">2BHK</option>
-                      <option value="3BHK">3BHK</option>
-                      <option value="4BHK">4BHK</option>
-                      <option value="5BHK">5BHK</option>
-                      <option value="6BHK">6BHK</option>
-                    </select>
-                  </div>
-                </div>
-                <div>
-                  <label className="block mb-2 text-sm font-medium text-gray-600">
-                  Housing Type
-                  </label>
-                  <div>
-                    <select
-                      name="accommodationType"
-                      id="accommodationType"
-                      value={accommodationType}
-                      onChange={handleAccommodationTypeChange}
-                      className="bg-gray-50 bg-opacity-70 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    >
-                      <option value="independent">Independent</option>
-                      <option value="notindependent">Not Independent</option>
-                    </select>
-                  </div>
                 </div>
                 <div>
                   <label className="block mb-2 text-sm font-medium text-gray-600">
@@ -324,12 +329,14 @@ export const HomeRegistration = () => {
                   </div>
                 </div>
 
-                <button
-                  type="submit"
-                  className="w-full text-white bg-blue-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
-                >
-                  Register Your Home
-                </button>
+                <div>
+                  <button
+                    type="submit"
+                    className="w-full text-white bg-blue-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+                  >
+                    Register Your Home
+                  </button>
+                </div>
               </form>
             </div>
           </div>
