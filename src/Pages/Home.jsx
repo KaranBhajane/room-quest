@@ -22,18 +22,34 @@ import chat from "./../assets/chat-bot.gif";
 import CountUp from "react-countup";
 import Btn from "./../assets/home.png";
 import Footer from "../componet/Footer";
+import { collection, getDocs } from "firebase/firestore";
+import { fireDb } from "../firebase/FirebaseConfig";
 
 export const Home = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isContentVisible, setIsContentVisible] = useState(false);
+  const [reviews, setReviews] = useState([]);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const fetchReviews = async () => {
+      const reviewsCollection = collection(fireDb, "reviews");
+      const reviewsSnapshot = await getDocs(reviewsCollection);
+      const reviewsData = [];
+      reviewsSnapshot.forEach((doc) => {
+        reviewsData.push({ id: doc.id, ...doc.data() });
+      });
+      setReviews(reviewsData);
+    };
+
+    fetchReviews();
+  }, []);
 
   const toggleContentVisibility = (event) => {
     event.preventDefault();
     setIsContentVisible(!isContentVisible);
   };
-
-  const navigate = useNavigate();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -135,9 +151,7 @@ export const Home = () => {
           {/* Next button icon */}
         </button>
       </div>
-
       {/* Carousel ends */}
-
       {/* middle section started */}
       <div className="md:flex m-auto">
         <div class="max-w-sm w-18 border-gray-200 md:m-14 flex flex-col items-center ml-4">
@@ -192,9 +206,7 @@ export const Home = () => {
           </p>
         </div>
       </div>
-
       {/*  */}
-
       <div
         href="#"
         class="flex flex-col items-center rounded-lg md:flex-row  hover:bg-gray-100  md:ml-10 md:mb-10"
@@ -249,9 +261,7 @@ export const Home = () => {
           </div>
         </div>
       </div>
-
       {/*  */}
-
       <a
         href="#"
         class="flex flex-col items-center shadow md:flex-row md:w-[100%]"
@@ -304,9 +314,7 @@ export const Home = () => {
       <div>
         <img src={banner} className="md:h-[600px] m-auto mt-14 rounded-3xl" />
       </div>
-
       {/* .. */}
-
       <div
         href="#"
         class="flex flex-col items-center shadow md:flex-row md:h-[100%]"
@@ -331,9 +339,7 @@ export const Home = () => {
         />
       </div>
       {/* .. */}
-
       {/* reviews starts */}
-
       <h1 className="text-center mb-7 mt-10 font-bold text-3xl">Reviews!!</h1>
       <div class="grid mb-8 border border-gray-200 rounded-lg shadow-sm md:mb-12 md:grid-cols-2 bg-white ">
         <figure className="flex flex-col items-center justify-center p-4 text-center bg-white border-b border-gray-200 rounded-t-lg md:rounded-t-none md:rounded-ss-lg md:border-e">
@@ -437,7 +443,42 @@ export const Home = () => {
           </figcaption>
         </figure>
       </div>
+      <div>
+        {/* Your existing code */}
 
+        {/* Add new review cards dynamically */}
+        <div className="grid mb-8 border border-gray-200 rounded-lg shadow-sm md:mb-12 md:grid-cols-2 bg-white -mt-12 ">
+          {reviews.map((review) => (
+            <figure
+              className="flex flex-col items-center justify-center p-4 text-center bg-white border border-gray-300 rounded-lg"
+              key={review.id}
+            >
+              <blockquote className="w-[80%] mx-auto mb-4 text-gray-500 lg:mb-8 dark:text-gray-400 text-center">
+                <h3 className="text-lg font-semibold text-gray-900">
+                  {review.title}
+                </h3>
+                <p className="my-4">{review.description}</p>
+              </blockquote>
+              <figcaption className="flex items-center justify-center">
+                <img
+                  className="rounded-full w-9 h-9"
+                  src={review.image}
+                  alt="profile picture"
+                />
+                <div className="space-y-0.5 font-medium dark:text-gray-950 text-left rtl:text-right ms-3">
+                  <div>{review.name}</div>
+                  <div className="text-sm text-gray-500 dark:text-gray-400">
+                    {review.profession}
+                  </div>
+                </div>
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+
+        {/* Your existing code */}
+      </div>
+      );
       {/* reviews ends */}
       <div className="fixed bottom-0 right-0 m-4 w-[60px]">
         <button>
