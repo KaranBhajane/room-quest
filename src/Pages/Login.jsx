@@ -2,20 +2,38 @@ import React, { useState } from "react";
 import bgimage from "../assets/loginlogoutbg.png";
 import { useNavigate } from "react-router";
 import toast from "react-hot-toast";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../../src/firebase/FirebaseConfig"; // Import the auth instance from FirebaseConfig
 
 export const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const [email, setEmail] = useState(""); // Add email state
+  const [password, setPassword] = useState(""); // Add password state
   const navigate = useNavigate();
 
   const handleShowPassword = () => {
     setShowPassword(!showPassword);
   };
 
+  const handleEmailChange = (e) => {
+    setEmail(e.target.value);
+  };
+
+  const handlePasswordChange = (e) => {
+    setPassword(e.target.value);
+  };
+
   const handleLogin = async (e) => {
     e.preventDefault();
-    toast.success("Login Successful");
-    navigate("/houselistings");
-
+    try {
+      // Sign in user with email and password
+      await signInWithEmailAndPassword(auth, email, password);
+      toast.success("Login Successful");
+      navigate("/houselistings");
+    } catch (error) {
+      toast.error("Please check your credentials.");
+      console.error(`${error.message}`);
+    }
   };
 
   return (
@@ -46,9 +64,11 @@ export const Login = () => {
                     type="email"
                     name="email"
                     id="email"
+                    value={email}
+                    onChange={handleEmailChange}
                     className="bg-gray-50 bg-opacity-70 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     placeholder="Enter your email id"
-                    required=""
+                    required
                   />
                 </div>
                 <div>
@@ -63,9 +83,11 @@ export const Login = () => {
                       type={showPassword ? "text" : "password"}
                       name="password"
                       id="password"
+                      value={password}
+                      onChange={handlePasswordChange}
                       placeholder="••••••••"
                       className="bg-gray-50 bg-opacity-70 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 pr-10 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                      required=""
+                      required
                     />
                   </div>
                 </div>

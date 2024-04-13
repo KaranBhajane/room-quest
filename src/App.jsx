@@ -1,6 +1,5 @@
 import "./App.css";
-import Footer from "./componet/Footer";
-import {NavBar} from "./componet/NavBar";
+import { NavBar } from "./componet/NavBar";
 import { Outlet } from "react-router";
 function App() {
   return (
@@ -8,7 +7,6 @@ function App() {
       <div>
         <NavBar />
         <Outlet />
-        
       </div>
     </div>
   );
