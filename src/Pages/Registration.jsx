@@ -2,9 +2,15 @@ import React, { useState } from "react";
 import bgimage from "../assets/loginlogoutbg.png";
 import { useNavigate } from "react-router";
 import toast from "react-hot-toast";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth ,fireDb } from "../../src/firebase/FirebaseConfig";
+import { collection, doc, setDoc } from "firebase/firestore";
+
+
 
 export const Registration = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const [email, setEmail] = useState(""); // Added email state
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [name, setName] = useState("");
@@ -16,6 +22,49 @@ export const Registration = () => {
 
   const navigate = useNavigate();
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (password === confirmPassword) {
+      try {
+        const userCredential = await createUserWithEmailAndPassword(
+          auth,
+          email,
+          password
+        );
+        const user = userCredential.user;
+  
+        // Save form data to Firebase
+        await setDoc(doc(fireDb, "users", user.uid), {
+          name,
+          email,
+          contactNumber,
+          occupation,
+          identificationType,
+          identificationNumber,
+          nativeAddress,
+        });
+  
+        setEmail("");
+        setPassword("");
+        setConfirmPassword("");
+        setName("");
+        setContactNumber("");
+        setOccupation("");
+        setIdentificationType("PAN");
+        setIdentificationNumber("");
+        setNativeAddress("");
+  
+        toast.success("Registration Successful");
+        navigate("/houselistings");
+      } catch (error) {
+        toast.error("Enter Valid Detail");
+        console.error(`Signup failed: ${error.message}`);
+      }
+    } else {
+      toast.error("Password not matched");
+    }
+  };
+  
   const handleShowPassword = () => {
     setShowPassword(!showPassword);
   };
@@ -52,18 +101,6 @@ export const Registration = () => {
     setIdentificationType(event.target.value);
   };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-
-    // Check if password and confirm password match
-    if (password !== confirmPassword) {
-      toast.error("Password not matched");
-      return;
-    }
-    toast.success("Registration Successful");
-    navigate("/houselistings");
-  };
-
   return (
     <div className="overflow-hidden min-h-screen">
       <section className="relative md:py-40">
@@ -78,7 +115,7 @@ export const Registration = () => {
           <div className="w-full bg-white bg-opacity-50 rounded-lg shadow md:mt-0 sm:max-w-md xl:p-0 relative ">
             <div className="p-5 space-y-5 md:space-y-3 sm:p-7">
               <h1 className="text-xl text-center font-bold leading-tight mb-4 tracking-tight text-gray-900 md:text-2xl">
-                Register Your Self
+                Register Yourself
               </h1>
               <form className="space-y-4 md:space-y-6" onSubmit={handleSubmit}>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -97,7 +134,7 @@ export const Registration = () => {
                       onChange={handleNameChange}
                       className="bg-gray-50 bg-opacity-70 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                       placeholder="Enter your name"
-                      required
+                      // required
                     />
                   </div>
                   <div>
@@ -111,9 +148,11 @@ export const Registration = () => {
                       type="email"
                       name="email"
                       id="email"
+                      value={email} // Added value attribute
+                      onChange={(e) => setEmail(e.target.value)} // Added onChange event handler
                       className="bg-gray-50 bg-opacity-70 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                       placeholder="Enter your email id"
-                      required
+                      required // Added required attribute
                     />
                   </div>
                 </div>
@@ -133,7 +172,7 @@ export const Registration = () => {
                       onChange={handleContactNumberChange}
                       className="bg-gray-50 bg-opacity-70 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                       placeholder="Enter your contact number"
-                      required
+                      // required
                     />
                   </div>
                   <div>
@@ -151,7 +190,7 @@ export const Registration = () => {
                       onChange={handleOccupationChange}
                       className="bg-gray-50 bg-opacity-70 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                       placeholder="Enter your occupation"
-                      required
+                      // required
                     />
                   </div>
                 </div>
@@ -189,7 +228,7 @@ export const Registration = () => {
                       onChange={handleIdentificationNumberChange}
                       className="bg-gray-50 bg-opacity-70 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                       placeholder={`Enter your ${identificationType} Number`}
-                      required
+                      // required
                     />
                   </div>
                 </div>
@@ -207,7 +246,7 @@ export const Registration = () => {
                     onChange={handleNativeAddressChange}
                     className="bg-gray-50 bg-opacity-70 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 h-20 resize-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     placeholder="Enter your native address"
-                    required
+                    // required
                   />
                 </div>
                 <div>
@@ -226,7 +265,7 @@ export const Registration = () => {
                       onChange={handlePasswordChange}
                       className="bg-gray-50 bg-opacity-70 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 pr-10 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                       placeholder="••••••••"
-                      required
+                      // required
                     />
                   </div>
                 </div>
@@ -245,7 +284,7 @@ export const Registration = () => {
                     onChange={handleConfirmPasswordChange}
                     className="bg-gray-50 bg-opacity-70 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     placeholder="••••••••"
-                    required
+                    required // Added required attribute
                   />
                 </div>
                 <div className="flex items-center justify-between">
@@ -271,7 +310,7 @@ export const Registration = () => {
                   type="submit"
                   className="w-full text-white bg-blue-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
                 >
-                  Register Your Self
+                  Register Yourself
                 </button>
                 <p className="text-sm text-gray-600">
                   Already have an account?{" "}
