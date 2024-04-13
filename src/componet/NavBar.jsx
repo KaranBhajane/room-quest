@@ -7,6 +7,7 @@ import toast from "react-hot-toast"; // Import the toast module
 export const NavBar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isRegistrationOpen, setIsRegistrationOpen] = useState(false);
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
@@ -33,8 +34,17 @@ export const NavBar = () => {
     toast.success("Logout Successful"); // Show logout success toast
   };
 
+  const closeRegistration = () => {
+    setIsRegistrationOpen(false);
+  };
+
+  const toggleRegistration = () => {
+    setIsRegistrationOpen(!isRegistrationOpen);
+    setIsMenuOpen(false); // Close the menu when toggling registration
+  };
+
   return (
-    <div className="sticky z-10">
+    <div className="sticky z-10 select-none">
       <div>
         <nav className="bg-gray-900 border-gray-200 dark:bg-gray-900 ">
           <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
@@ -87,38 +97,72 @@ export const NavBar = () => {
                   </NavLink>
                 </li>
                 {isLoggedIn ? (
-                  <>
-                    <li>
-                      <button
-                        onClick={handleLogout}
-                        className="block py-2 px-3 text-gray-300 rounded hover:bg-gray-700 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0"
-                      >
-                        Logout
-                      </button>
-                    </li>
-                  </>
+                  <li>
+                    <button
+                      onClick={handleLogout}
+                      className="block py-2 px-3 text-gray-300 rounded hover:bg-gray-700 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0"
+                    >
+                      Logout
+                    </button>
+                  </li>
                 ) : (
-                  <>
+                  <li>
+                    <NavLink
+                      to="/login"
+                      onClick={closeMenu}
+                      className="block py-2 px-3 text-gray-300 rounded hover:bg-gray-700 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0"
+                    >
+                      Login
+                    </NavLink>
+                  </li>
+                )}
+                <li className="relative mb-3 md:mb-0">
+                  <a
+                    href="#"
+                    className="block py-2 px-3 text-gray-300 rounded hover:bg-gray-700 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 flex items-center"
+                    onClick={toggleRegistration}
+                  >
+                    Register
+                    <svg
+                      className="w-4 h-4 ml-1"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M19 9l-7 7-7-7"
+                      ></path>
+                    </svg>
+                  </a>
+                  <ul
+                    className={`absolute top-full left-0 bg-gray-800 border border-gray-100 rounded-lg p-2 w-[13rem] ${
+                      isRegistrationOpen ? "" : "hidden"
+                    }`}
+                  >
                     <li>
                       <NavLink
-                        to="/login"
-                        onClick={closeMenu}
-                        className="block py-2 px-3 text-gray-300 rounded hover:bg-gray-700 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0"
+                        to="/homeregistration"
+                        onClick={() => {closeMenu(); closeRegistration();}}
+                        className="py-2 px-3 text-gray-300 hover:bg-gray-700 rounded-md"
                       >
-                        Login
+                        Register Your Room
                       </NavLink>
                     </li>
-                    <li>
+                    <li className="my-2">
                       <NavLink
                         to="/registration"
-                        onClick={closeMenu}
-                        className="block py-2 px-3 text-gray-300 rounded hover:bg-gray-700 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0"
+                        onClick={() => {closeMenu(); closeRegistration();}}
+                        className="py-2 px-3 text-gray-300 hover:bg-gray-700 rounded-md"
                       >
-                        Register
+                        Register Your Self
                       </NavLink>
                     </li>
-                  </>
-                )}
+                  </ul>
+                </li>
                 <li>
                   <NavLink
                     to="/houselistings"

@@ -6,8 +6,6 @@ import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth ,fireDb } from "../../src/firebase/FirebaseConfig";
 import { collection, doc, setDoc } from "firebase/firestore";
 
-
-
 export const Registration = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [email, setEmail] = useState(""); // Added email state
@@ -55,7 +53,7 @@ export const Registration = () => {
         setNativeAddress("");
   
         toast.success("Registration Successful");
-        navigate("/houselistings");
+        navigate("/");
       } catch (error) {
         toast.error("Enter Valid Detail");
         console.error(`Signup failed: ${error.message}`);
@@ -102,7 +100,7 @@ export const Registration = () => {
   };
 
   return (
-    <div className="overflow-hidden min-h-screen">
+    <div className="overflow-hidden min-h-screen md:mt-0 -mt-6">
       <section className="relative md:py-40">
         <div className="absolute inset-0 min-h-screen">
           <img
