@@ -10,8 +10,8 @@ export const HouseListings = () => {
   useEffect(() => {
     const fetchHouses = async () => {
       try {
-        const db = getFirestore(fireDb);
-        const q = query(collection(db, "homes")); // Create query
+        // const db = getFirestore(fireDb);
+        const q = query(collection(fireDb, "homes")); // Create query
         const querySnapshot = await getDocs(q);
         const fetchedHouses = [];
         querySnapshot.forEach((doc) => {
@@ -54,15 +54,16 @@ export const HouseListings = () => {
                 {house.ownerName}
               </h5>
               <p className="text-xl font-semibold text-gray-700">{house.price}</p>
-              <p className="font-normal text-gray-600">{house.location}</p>
               <div className="mt-3 border-t border-gray-300 pt-3 flex flex-col md:flex-row">
                 <div className="flex-1">
-                  <p className="font-normal text-gray-600">{house.contactNumber}</p>
-                  <p className="font-semibold text-gray-700">{house.facilities.join(", ")}</p>
+                  <p className="font-normal text-gray-700 ">ContactNumber</p>
+                  <p className="font-semibold text-gray-700 mb-2">{house.contactNumber}</p>
+                  <p className="font-normal text-gray-700 ">House Facilities</p>
+                  <p className="font-semibold text-gray-700 w-[50%]">{house.facilities.join(", ")}</p>
                 </div>
                 <div className="flex-1">
                   <p className="font-normal text-gray-600">Address</p>
-                  <p className="font-semibold text-gray-700">{house.address}</p>
+                  <p className="font-semibold text-gray-700">{house.location}</p>
                 </div>
               </div>
               <div className="mt-3">
