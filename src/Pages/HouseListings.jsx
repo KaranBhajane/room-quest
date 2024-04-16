@@ -41,7 +41,10 @@ export const HouseListings = () => {
         <Loader />
       ) : (
         houses.map((house) => (
-          <div key={house.id} className="houseListing max-w-[1500px] border md:m-auto md:mt-10 p-5 shadow-2xl m-5 flex flex-col md:flex-row rounded-2xl">
+          <div
+            key={house.id}
+            className="houseListing max-w-[1500px] border md:m-auto md:mt-10 p-5 shadow-2xl m-5 flex flex-col md:flex-row rounded-2xl"
+          >
             <div className="order-2 md:order-1">
               <img
                 src={house.image}
@@ -53,35 +56,55 @@ export const HouseListings = () => {
               <h5 className="text-2xl font-bold tracking-tight text-gray-900">
                 {house.ownerName}
               </h5>
-              <p className="text-xl font-semibold text-gray-700">{house.price}</p>
+              <p className="text-xl font-semibold text-gray-700">
+                {house.price}
+              </p>
               <div className="mt-3 border-t border-gray-300 pt-3 flex flex-col md:flex-row">
                 <div className="flex-1">
                   <p className="font-normal text-gray-700 ">ContactNumber</p>
-                  <p className="font-semibold text-gray-700 mb-2">{house.contactNumber}</p>
+                  <p className="font-semibold text-gray-700 mb-2">
+                    {house.contactNumber}
+                  </p>
                   <p className="font-normal text-gray-700 ">House Facilities</p>
-                  <p className="font-semibold text-gray-700 w-[50%]">{house.facilities.join(", ")}</p>
+                  <p className="font-semibold text-gray-700 w-[50%]">
+                    {house.facilities.join(", ")}
+                  </p>
                 </div>
                 <div className="flex-1">
                   <p className="font-normal text-gray-600">Address</p>
-                  <p className="font-semibold text-gray-700">{house.location}</p>
+                  <p className="font-semibold text-gray-700">
+                    {house.location}
+                  </p>
                 </div>
               </div>
               <div className="mt-3">
                 <p className="font-normal text-gray-600">Furnishing</p>
-                <p className="font-semibold text-gray-700">{house.furnishing}</p>
+                <p className="font-semibold text-gray-700">
+                  {house.furnishing}
+                </p>
               </div>
               <div className="mt-3">
                 <p className="font-normal text-gray-600">Accommodation Type</p>
-                <p className="font-semibold text-gray-700">{house.accommodationType}</p>
+                <p className="font-semibold text-gray-700">
+                  {house.accommodationType}
+                </p>
               </div>
               <div className="mt-3">
                 <p className="font-normal text-gray-600">Description</p>
-                <p className="font-semibold text-gray-700">{house.roomDescription}</p>
+                <p className="font-semibold text-gray-700">
+                  {house.roomDescription}
+                </p>
               </div>
               <div className="flex justify-end">
                 <button
                   className="bg-white text-blue-500 px-4 py-2 border border-blue-500 rounded mt-3 hover:bg-blue-600 hover:text-white transition-colors duration-300"
-                  onClick={() => ownerContact(house.ownerName, house.contactNumber, house.location)}
+                  onClick={() =>
+                    ownerContact(
+                      house.ownerName,
+                      house.contactNumber,
+                      house.location
+                    )
+                  }
                 >
                   Bookmark
                 </button>
