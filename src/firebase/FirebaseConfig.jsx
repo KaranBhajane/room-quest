@@ -2,9 +2,11 @@ import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 import { getStorage } from "firebase/storage"; // Import getDownloadURL function // Import getDownloadURL function
+const API_KEY= import.meta.env.VITE_Firebase_API_KEY;
+
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAOnsOZ3c2M0Vv_St5JnVW___P5EogAVbQ",
+  apiKey:  API_KEY,
   authDomain: "roomquest-78c6c.firebaseapp.com",
   projectId: "roomquest-78c6c",
   storageBucket: "roomquest-78c6c.appspot.com",
