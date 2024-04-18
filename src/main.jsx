@@ -2,7 +2,6 @@ import React from "react";
 import App from "./App.jsx";
 import "./index.css";
 import ReactDOM from "react-dom/client";
-
 import {
   Home,
   About,
@@ -25,6 +24,7 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
+import { ProtectedRoute } from "./protectedRoute/ProtectedRoute.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -36,7 +36,10 @@ const router = createBrowserRouter(
       <Route path="register" element={<Register />} />
       <Route path="registration" element={<Registration />} />
       <Route path="homeregistration" element={<HomeRegistration />} />
-      <Route path="houselistings" element={<HouseListings />} />
+      <Route path="houselistings" element={
+      <ProtectedRoute>
+        <HouseListings />
+        </ProtectedRoute>} />
       <Route path="mission" element={<Mission />} />
       <Route path="careers" element={<Careers />} />
       <Route path="blogs" element={<Blog />} />
