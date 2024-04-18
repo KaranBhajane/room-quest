@@ -27,6 +27,7 @@ export const Login = () => {
     e.preventDefault();
     try {
       await signInWithEmailAndPassword(auth, email, password);
+      localStorage.setItem("user", JSON.stringify({ email }));
       toast.success("Login Successful");
       navigate("/houselistings");
     } catch (error) {
@@ -34,6 +35,7 @@ export const Login = () => {
       console.error(`${error.message}`);
     }
   };
+  
 
   return (
     <>

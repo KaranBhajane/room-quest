@@ -31,6 +31,7 @@ export const NavBar = () => {
 
   const handleLogout = () => {
     auth.signOut();
+    localStorage.clear("user"); 
     toast.success("Logout Successful"); // Show logout success toast
   };
 
@@ -41,6 +42,14 @@ export const NavBar = () => {
   const toggleRegistration = () => {
     setIsRegistrationOpen(!isRegistrationOpen);
     setIsMenuOpen(false); // Close the menu when toggling registration
+  };
+
+  const handleRentHomeClick = () => {
+    if (!isLoggedIn) {
+      toast.error("Please login to access Rent a Room option.");
+    } else {
+      closeMenu();
+    }
   };
 
   return (
@@ -166,7 +175,7 @@ export const NavBar = () => {
                 <li>
                   <NavLink
                     to="/houselistings"
-                    onClick={closeMenu}
+                    onClick={isLoggedIn ? closeMenu : handleRentHomeClick}
                     className="block py-2 px-3 text-gray-300 rounded hover:bg-gray-700 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0"
                   >
                     Rent a Home
