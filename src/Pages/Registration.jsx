@@ -14,8 +14,8 @@ export const Registration = () => {
   const [name, setName] = useState("");
   const [contactNumber, setContactNumber] = useState("");
   const [occupation, setOccupation] = useState("");
-  const [identificationNumber, setIdentificationNumber] = useState("");
   const [nativeAddress, setNativeAddress] = useState("");
+  const [identificationNumber, setIdentificationNumber] = useState("");
   const [identificationType, setIdentificationType] = useState("PAN");
 
   const navigate = useNavigate();
