@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import bgimage from "../assets/loginlogoutbg.png";
+import bgimage from "../assets/loginlogoutbg.jpg";
 import { useNavigate } from "react-router";
 import { collection, addDoc } from "firebase/firestore";
 import { fireDb } from "../firebase/FirebaseConfig";

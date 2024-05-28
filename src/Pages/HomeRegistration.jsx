@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { getFirestore, collection, addDoc } from "firebase/firestore";
-import bgimage from "../assets/loginlogoutbg.png";
+import bgimage from "../assets/loginlogoutbg.jpg";
 import toast from "react-hot-toast";
 import { fireDb } from "../firebase/FirebaseConfig";
 import { useNavigate } from "react-router";

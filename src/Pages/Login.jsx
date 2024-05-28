@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import bgimage from "../assets/loginlogoutbg.png";
+import bgimage from "../assets/loginlogoutbg.jpg";
 import { useNavigate } from "react-router";
 import toast, { Toaster } from "react-hot-toast";
 import { signInWithEmailAndPassword } from "firebase/auth";
