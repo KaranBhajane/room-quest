@@ -1,21 +1,23 @@
 import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import logo from "../assets/logo.png";
-import { auth } from "../../src/firebase/FirebaseConfig"; // Import the auth instance from FirebaseConfig
-import toast from "react-hot-toast"; // Import the toast module
+import { auth } from "../../src/firebase/FirebaseConfig";
+import toast from "react-hot-toast";
+import { useNavigate } from "react-router";
 
 export const NavBar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isRegistrationOpen, setIsRegistrationOpen] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       if (user) {
-        setIsLoggedIn(true); // User is signed in.
-        toast.success("Login Successful"); // Show login success toast
+        setIsLoggedIn(true);
+        toast.success("Login Successful");
       } else {
-        setIsLoggedIn(false); // User is signed out.
+        setIsLoggedIn(false);
       }
     });
     return unsubscribe;
@@ -31,8 +33,9 @@ export const NavBar = () => {
 
   const handleLogout = () => {
     auth.signOut();
-    localStorage.clear("user"); 
-    toast.success("Logout Successful"); // Show logout success toast
+    localStorage.clear("user");
+    navigate("/");
+    toast.success("Logout Successful");
   };
 
   const closeRegistration = () => {
@@ -41,7 +44,7 @@ export const NavBar = () => {
 
   const toggleRegistration = () => {
     setIsRegistrationOpen(!isRegistrationOpen);
-    setIsMenuOpen(false); // Close the menu when toggling registration
+    setIsMenuOpen(false);
   };
 
   const handleRentHomeClick = () => {
@@ -155,7 +158,10 @@ export const NavBar = () => {
                     <li>
                       <NavLink
                         to="/homeregistration"
-                        onClick={() => {closeMenu(); closeRegistration();}}
+                        onClick={() => {
+                          closeMenu();
+                          closeRegistration();
+                        }}
                         className="py-2 px-3 text-gray-300 hover:bg-gray-700 rounded-md"
                       >
                         Register Your Room
@@ -164,7 +170,10 @@ export const NavBar = () => {
                     <li className="my-2">
                       <NavLink
                         to="/registration"
-                        onClick={() => {closeMenu(); closeRegistration();}}
+                        onClick={() => {
+                          closeMenu();
+                          closeRegistration();
+                        }}
                         className="py-2 px-3 text-gray-300 hover:bg-gray-700 rounded-md"
                       >
                         Register Your Self
