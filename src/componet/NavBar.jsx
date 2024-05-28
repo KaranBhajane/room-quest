@@ -49,7 +49,9 @@ export const NavBar = () => {
 
   const handleRentHomeClick = () => {
     if (!isLoggedIn) {
-      toast.error("Please login to access Rent a Room option.");
+      setTimeout(() => {
+        toast.error("Please login to access Rent a Room option.");
+      }, 2000); 
     } else {
       closeMenu();
     }
