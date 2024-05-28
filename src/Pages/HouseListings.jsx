@@ -6,6 +6,7 @@ import Loader from "../componet/Loader";
 export const HouseListings = () => {
   const [houses, setHouses] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [filteredHouses, setFilteredHouses] = useState([]);
   const [searchLocation, setSearchLocation] = useState("");
   const [minPrice, setMinPrice] = useState("");
   const [maxPrice, setMaxPrice] = useState("");
@@ -21,6 +22,7 @@ export const HouseListings = () => {
         }));
         console.log("Fetched Houses:", fetchedHouses);
         setHouses(fetchedHouses);
+        setFilteredHouses(fetchedHouses); // Initially display all houses
       } catch (error) {
         console.error("Error fetching houses:", error);
       } finally {
@@ -31,15 +33,19 @@ export const HouseListings = () => {
     fetchHouses();
   }, []);
 
-  const handleSearch = () => {
-    const filteredHouses = houses.filter(
-      (house) =>
-        house.location.toLowerCase().includes(searchLocation.toLowerCase()) &&
-        (minPrice ? house.price >= parseFloat(minPrice) : true) &&
-        (maxPrice ? house.price <= parseFloat(maxPrice) : true)
-    );
-    setHouses(filteredHouses);
-  };
+  useEffect(() => {
+    const filterHouses = () => {
+      const filtered = houses.filter(
+        (house) =>
+          house.location.toLowerCase().includes(searchLocation.toLowerCase()) &&
+          (minPrice ? house.price >= parseFloat(minPrice) : true) &&
+          (maxPrice ? house.price <= parseFloat(maxPrice) : true)
+      );
+      setFilteredHouses(filtered);
+    };
+
+    filterHouses();
+  }, [searchLocation, minPrice, maxPrice, houses]);
 
   const ownerContact = (name, contact, location) => {
     console.log("Owner Contact:", name, contact, location);
@@ -69,42 +75,34 @@ export const HouseListings = () => {
           value={maxPrice}
           onChange={(e) => setMaxPrice(e.target.value)}
         />
-        <button
-          onClick={handleSearch}
-          className="bg-blue-500 text-white px-4 py-2 rounded w-full md:w-auto"
-        >
-          Search
-        </button>
       </div>
 
       {loading ? (
         <Loader />
       ) : (
         <div className="houses-container flex flex-wrap justify-center">
-          {houses.length > 0 ? (
-            houses.map((house) => (
+          {filteredHouses.length > 0 ? (
+            filteredHouses.map((house) => (
               <div
                 key={house.id}
                 className="houseListing w-full border md:m-auto md:mt-10 p-5 shadow-2xl m-5 flex flex-col md:flex-row rounded-2xl bg-white"
               >
                 <div className="order-2 md:order-1 grid grid-cols-2 gap-2 mr-10">
-                  {house.images &&
-                    house.images.slice(0, 4).map((image, index) => (
-                      <a
-                        href={image}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-indigo-600 hover:text-indigo-900"
-                      >
-                        <img
-                          key={index}
-                          src={image}
-                          className="h-48 w-48 object-cover rounded-xl"
-                          alt={`House ${index + 1}`}
-                        />
-                      </a>
-                    ))}
-
+                  {house.images && house.images.slice(0, 4).map((image, index) => (
+                    <a
+                      href={image}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-indigo-600 hover:text-indigo-900"
+                    >
+                      <img
+                        key={index}
+                        src={image}
+                        className="h-48 w-48 object-cover rounded-xl"
+                        alt={`House ${index + 1}`}
+                      />
+                    </a>
+                  ))}
                   {!house.images && (
                     <p className="text-center text-gray-500">
                       No images available
@@ -120,15 +118,11 @@ export const HouseListings = () => {
                   </p>
                   <div className="mt-3 border-t border-gray-300 pt-3 flex flex-col md:flex-row">
                     <div className="flex-1">
-                      <p className="font-normal text-gray-700">
-                        Contact Number
-                      </p>
+                      <p className="font-normal text-gray-700">Contact Number</p>
                       <p className="font-semibold text-gray-700 mb-2">
                         {house.contactNumber}
                       </p>
-                      <p className="font-normal text-gray-700">
-                        House Facilities
-                      </p>
+                      <p className="font-normal text-gray-700">House Facilities</p>
                       <p className="font-semibold text-gray-700">
                         {house.facilities.join(", ")}
                       </p>
@@ -147,9 +141,7 @@ export const HouseListings = () => {
                     </p>
                   </div>
                   <div className="mt-3">
-                    <p className="font-normal text-gray-600">
-                      Accommodation Type
-                    </p>
+                    <p className="font-normal text-gray-600">Accommodation Type</p>
                     <p className="font-semibold text-gray-700">
                       {house.accommodationType}
                     </p>
