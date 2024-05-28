@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import bgimage from "../assets/loginlogoutbg.png";
 import { useNavigate } from "react-router";
 import toast, { Toaster } from "react-hot-toast";
@@ -10,6 +10,13 @@ export const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const user = JSON.parse(localStorage.getItem("user"));
+    if (user && user.justLoggedIn) {
+      localStorage.setItem("user", JSON.stringify({ ...user, justLoggedIn: false }));
+    }
+  }, []);
 
   const handleShowPassword = () => {
     setShowPassword(!showPassword);
@@ -26,8 +33,8 @@ export const Login = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      await signInWithEmailAndPassword(auth, email, password);
-      localStorage.setItem("user", JSON.stringify({ email }));
+      const userCredential = await signInWithEmailAndPassword(auth, email, password);
+      localStorage.setItem("user", JSON.stringify(userCredential.user));
       toast.success("Login Successful");
       navigate("/houselistings");
     } catch (error) {
@@ -35,12 +42,11 @@ export const Login = () => {
       console.error(`${error.message}`);
     }
   };
-  
 
   return (
     <>
       <Toaster /> {/* Only one toaster component for showing toasts */}
-      <div className="overflow-hidden min-h-screen md:mt-0 -mt-20 ">
+      <div className="overflow-hidden min-h-screen md:mt-0 -mt-20">
         <section className="relative">
           <div className="absolute inset-0 min-h-screen">
             <img
@@ -53,7 +59,7 @@ export const Login = () => {
             <div className="w-full bg-white bg-opacity-50 rounded-lg shadow md:mt-0 sm:max-w-md xl:p-0 relative z-10">
               <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
                 <h1 className="text-xl text-center font-bold leading-tight tracking-tight text-gray-900 md:text-2xl">
-                  Login in to your account
+                  Login to your account
                 </h1>
                 <form className="space-y-4 md:space-y-6" onSubmit={handleLogin}>
                   <div>
@@ -124,13 +130,13 @@ export const Login = () => {
                   >
                     Login
                   </button>
-                  <p className="text-sm  text-gray-600">
+                  <p className="text-sm text-gray-600">
                     Don’t have an account yet?{" "}
                     <span
                       className="font-medium text-primary-600 hover:underline cursor-pointer"
                       onClick={() => navigate("/registration")}
                     >
-                      Register Your Self
+                      Register Yourself
                     </span>
                   </p>
                 </form>

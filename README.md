@@ -32,9 +32,3 @@ To see a live demo of the project, please visit : https://room-quest.vercel.app/
 If you would like to contribute to this Room-Quest website, please open an issue or submit a pull request. All contributions are welcome.
 
 
-## Contact 
-
-If you have any questions or suggestions, please feel free to contact me on:
-
-- LinkedIn: https://www.linkedin.com/in/yash-mishra-356280223
-- Twitter: https://twitter.com/YashRKMishra1

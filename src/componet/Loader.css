@@ -7,6 +7,8 @@
     display: inline-block;
     box-sizing: border-box;
     animation: rotation 1s linear infinite;
+    margin-left: 50%;
+    margin-top: 5%;
     }
 
     @keyframes rotation {
