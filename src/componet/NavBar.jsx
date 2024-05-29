@@ -64,7 +64,7 @@ export const NavBar = () => {
           <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
             <div>
               <a
-                href="https://flowbite.com/"
+                href="/"
                 className="flex items-center space-x-3 rtl:space-x-reverse "
               >
                 <img src={logo} className="w-32" alt="Flowbite Logo" />
